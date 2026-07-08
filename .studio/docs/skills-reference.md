@@ -1,7 +1,7 @@
 <!-- Software Engineering Studios -->
 # 技能参考
 
-本文件列出 Software Engineering Studios 中配置的 79 个技能（Skill），按开发阶段分类，并标注模型层级分配。所有技能定义源文件位于 `.studio/skills/` 目录，通过同步脚本输出到各平台。
+本文件列出 Software Engineering Studios 中配置的 80 个技能（Skill），按开发阶段分类，并标注模型层级分配。所有技能定义源文件位于 `.studio/skills/` 目录，通过同步脚本输出到各平台。
 
 ## 1. 模型层级分配
 
@@ -70,11 +70,12 @@
 | `/sprint-plan` | Sonnet | 规划 Sprint 内容，分配故事并估算工作量 |
 | `/estimate` | Sonnet | 工作量估算，为故事和史诗提供时间预估 |
 
-### 2.6 开发阶段（11 个）
+### 2.6 开发阶段（12 个）
 
 | 命令 | 模型 | 说明 |
 | --- | --- | --- |
 | `/dev-story` | Sonnet | 开发单个用户故事，实现功能并编写测试 |
+| `/code-management` | Sonnet | 代码管理工作流：worktree、提交、推送、分支清理、rebase |
 | `/code-review` | Sonnet | 对已完成代码进行审查，确保符合编码规范 |
 | `/story-readiness` | Haiku | 检查故事是否满足开发就绪条件 |
 | `/story-done` | Sonnet | 确认故事完成，验证验收标准和测试证据 |
@@ -156,13 +157,13 @@
 | 架构设计阶段 | 7 |
 | 技术设计阶段 | 5 |
 | 预开发阶段 | 7 |
-| 开发阶段 | 11 |
+| 开发阶段 | 12 |
 | 测试优化阶段 | 7 |
 | 发布部署阶段 | 6 |
 | 团队编排 | 7 |
 | 工具类 | 14 |
 | 平台工具 | 2 |
-| **合计** | **79** |
+| **合计** | **80** |
 
 ## 4. 技能定义格式
 

@@ -226,6 +226,36 @@ solo
 - [ ] 记录 ADVISORY 项至技术债务清单
 ```
 
+## 6. 推送/PR 门禁联动
+
+推送或创建 PR 前，必须确认审查状态满足前置条件。`validate-push.sh` Hook 会自动检查审查报告是否存在。
+
+### 6.1 推送前置审查要求
+
+| 分支类型 | 前置审查 | 审查模式要求 | 审查报告路径 |
+|----------|----------|-------------|-------------|
+| `feature/*` | code-review | full/lean 必需，solo 可选 | `production/sprints/*-review.md` |
+| `fix/*` | code-review | full/lean 必需，solo 可选 | `production/sprints/*-review.md` |
+| `hotfix/*` | code-review（事后补完成） | 推送后尽快补审查 | `docs/hotfix/` |
+| `release/*` | gate-check | full/lean/solo 均必需 | `production/releases/gate-check.md` |
+| `main/master/develop` | 禁止直接推送 | 通过 PR 合并 | 不适用 |
+
+### 6.2 与 validate-push.sh 的联动
+
+- **受保护分支（main/master/develop）**：`validate-push.sh` 阻断直接推送（`exit 2`），必须通过 PR 合并
+- **feature/fix 分支**：`validate-push.sh` 检查 `production/sprints/` 下是否存在审查报告，未找到时输出警告（`exit 0`，提示运行 `/code-review`）
+- **release 分支**：`validate-push.sh` 检查 `production/releases/gate-check.md` 是否存在，未找到时输出警告
+- **hotfix 分支**：`validate-push.sh` 提示推送后补完成审查
+
+### 6.3 开发阶段审查与推送的关联
+
+第 2.5 节"开发阶段"的 `code-review` 审查点是推送的前置条件：
+
+- 审查通过后方可推送/创建 PR
+- 审查报告存放在 `production/sprints/*-review.md`
+- 未完成审查时，`/code-management push` 会提示先运行 `/code-review`
+- `validate-push.sh` 在推送时自动检查审查报告存在性
+
 ## 4. 审查与门禁的关系
 
 - **门禁**（详见 `director-gates.md`）由总监层 Agent 执行，是阶段间的硬性把关

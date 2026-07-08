@@ -175,6 +175,16 @@ Agent 团队是通过团队编排命令（如 `/team-frontend`、`/team-backend`
   - 识别是否需要调整计划
 - 部分报告必须明确标注覆盖范围与缺失部分
 
+### 4.5 Worktree 隔离执行
+
+当 4.1 定义的"独立任务同时发起"场景触发时，应使用 git worktree 为每个并行子 Agent 创建独立工作树，实现代码隔离。
+
+- **隔离原则**：每个并行子 Agent 在独立 worktree 中工作，与上下文隔离原则一致（子 Agent 在独立上下文窗口中运行）
+- **Worktree 创建**：运行 `/code-management worktree` 创建工作树，路径格式 `../worktrees/[分支名]`
+- **Worktree 映射**：在 `active.md` 中记录 worktree 路径 → 分支名 → 任务名的映射关系
+- **Worktree 清理**：与 4.2"收集所有结果再进入依赖阶段"关联，所有 worktree 合并后再进入依赖阶段，合并后立即清理 worktree
+- **完整规范**：详见 `docs/code-management-workflow.md` 第 2 节
+
 ## 5. 协作协议
 
 所有 Agent 协作遵循用户驱动的协作协议：

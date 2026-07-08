@@ -28,7 +28,7 @@
 ### Codex / Cursor / Windsurf / Trae / WorkBuddy
 Hook 降级为 AGENTS.md 或平台规则文件中的明确指令。例如：
 - validate-commit.sh → "提交信息必须遵循 Conventional Commits 格式（feat/fix/docs/refactor/test/chore）"
-- validate-push.sh → "禁止向 main/master/release/* 分支直接推送，需通过代码审查"
+- validate-push.sh → "禁止向 main/master/develop 分支直接推送（阻断）；feature/fix/hotfix 分支推送前建议完成代码审查（警告）"
 - session-start.sh → "会话开始时先读取 production/session-state/active.md 了解当前状态"
 - pre-compact.sh → "上下文压缩前将当前进度写入 production/session-state/active.md"
 - post-compact.sh → "上下文压缩后从 active.md 恢复状态"
