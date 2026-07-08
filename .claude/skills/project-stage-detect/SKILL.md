@@ -1,13 +1,23 @@
 ---
 name: project-stage-detect
-description: 分析项目状态、检测当前阶段、识别各阶段差距，输出阶段诊断报告。
-argument-hint: ""
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-model: haiku
+description: "分析项目状态、检测当前阶段、识别各阶段差距，输出阶段诊断报告。"
+license: MIT
+metadata:
+  model: haiku
+  argument-hint: ""
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /project-stage-detect}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # project-stage-detect — 项目阶段检测

@@ -1,17 +1,27 @@
 ---
 name: dev-story
-description: 核心实现技能。读取 Story 文件并按 7 阶段工作流实现功能：找到 Story、加载上下文、路由到正确程序员、实现、测试证据、收集总结、更新会话状态。
-argument-hint: "[故事路径]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Bash
-  - Task
-  - AskUserQuestion
-model: sonnet
+description: "核心实现技能。读取 Story 文件并按 7 阶段工作流实现功能：找到 Story、加载上下文、路由到正确程序员、实现、测试证据、收集总结、更新会话状态。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[故事路径]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Bash
+    - Task
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /dev-story}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # dev-story —— Story 实现技能

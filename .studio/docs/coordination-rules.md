@@ -61,6 +61,8 @@
 
 **禁止**未经传播流程直接修改受影响文件。
 
+**资产扩展传播**：新增 Agent/Skill/Rule 后，必须通过 `/sync-platforms` 传播到所有平台。新增资产的变更传播遵循与架构变更相同的流程。详见 `docs/extension-mechanism.md`。
+
 ### 规则 5：禁止单方面跨领域变更
 
 任何 Agent 不得单方面修改不属于自己领域的文件或配置，必须通过协商和审批流程。
@@ -183,6 +185,19 @@ Agent 团队是通过团队编排命令（如 `/team-frontend`、`/team-backend`
 - Agent 在请求审批前必须展示草稿或摘要
 - 多文件修改需要针对完整变更集的明确审批
 - 未经用户指示不得进行提交
+
+### 5.1 动态扩展协议
+
+Software Engineering Studios 支持根据项目需求动态新增专家 Agent、技能和路径规则。扩展流程遵循以下协议：
+
+- **新增专家 Agent**：总监层或部门负责人层可提案，chief-architect 审核，用户最终批准。详见 `/create-agent` 工作流。
+- **新增 Skill**：部门负责人层可提案（专家层经部门负责人授权），对应部门负责人初审 + chief-architect 终审，用户最终批准。详见 `/create-skill` 工作流。
+- **新增 Rule**：部门负责人层可提案（专家层经部门负责人授权），tech-architect 初审 + chief-architect 终审，用户最终批准。详见 `/create-rule` 工作流。
+- **注册与追踪**：所有新增资产必须注册到 `asset-registry.yaml` 并记录到 `asset-changelog.md`。
+- **审核门禁**：新增资产须通过 CA-ASSET 门禁（由 chief-architect 执行）。
+- **变更传播**：注册后必须通过 `/sync-platforms` 传播到所有平台。
+
+完整规范详见 `docs/extension-mechanism.md`。
 
 ## 6. 审计与记录
 

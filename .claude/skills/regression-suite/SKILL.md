@@ -1,15 +1,25 @@
 ---
 name: regression-suite
-description: 将测试覆盖率映射到 SRS 关键路径，标记覆盖差距，维护并更新回归测试套件。
-argument-hint: ""
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Bash
-model: sonnet
+description: "将测试覆盖率映射到 SRS 关键路径，标记覆盖差距，维护并更新回归测试套件。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: ""
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Bash
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /regression-suite}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # regression-suite — 回归测试套件维护

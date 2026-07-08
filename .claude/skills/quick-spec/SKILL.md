@@ -1,15 +1,25 @@
 ---
 name: quick-spec
-description: 轻量级变更规范，适用于小型变更、配置调优、微调，产出精简的变更说明。
-argument-hint: ""
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "轻量级变更规范，适用于小型变更、配置调优、微调，产出精简的变更说明。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: ""
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /quick-spec}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # quick-spec — 轻量级变更规范

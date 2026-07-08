@@ -1,13 +1,23 @@
 ---
 name: help
-description: 上下文感知的"下一步该做什么"助手。读取工作流目录与已有产物，判断当前阶段并推荐下一步动作。
-argument-hint: ""
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-model: haiku
+description: "上下文感知的\"下一步该做什么\"助手。读取工作流目录与已有产物，判断当前阶段并推荐下一步动作。"
+license: MIT
+metadata:
+  model: haiku
+  argument-hint: ""
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /help}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # help — 上下文感知下一步助手

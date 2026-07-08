@@ -1,15 +1,25 @@
 ---
 name: accessibility-requirements
-description: 确认项目无障碍需求，使用 accessibility-requirements.md 模板定义合规级别与具体要求。
-argument-hint: ""
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "确认项目无障碍需求，使用 accessibility-requirements.md 模板定义合规级别与具体要求。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: ""
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /accessibility-requirements}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # accessibility-requirements — 无障碍需求确认

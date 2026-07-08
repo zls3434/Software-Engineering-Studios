@@ -1,14 +1,24 @@
 ---
 name: skill-test
-description: 验证技能文件的合规性和正确性，检查 YAML frontmatter 格式与 markdown body 完整性，生成合规报告。
-argument-hint: "[技能名]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-model: sonnet
+description: "验证技能文件的合规性和正确性，检查 YAML frontmatter 格式与 markdown body 完整性，生成合规报告。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[技能名]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /skill-test}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # skill-test — 技能文件合规性验证

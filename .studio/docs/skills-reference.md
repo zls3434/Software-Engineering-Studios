@@ -1,14 +1,14 @@
 <!-- Software Engineering Studios -->
 # 技能参考
 
-本文件列出 Software Engineering Studios 中配置的 74 个技能（Skill），按开发阶段分类，并标注模型层级分配。所有技能定义源文件位于 `.studio/skills/` 目录，通过同步脚本输出到各平台。
+本文件列出 Software Engineering Studios 中配置的 79 个技能（Skill），按开发阶段分类，并标注模型层级分配。所有技能定义源文件位于 `.studio/skills/` 目录，通过同步脚本输出到各平台。
 
 ## 1. 模型层级分配
 
 | 模型层级 | 适用技能 | 分配原则 |
 | --- | --- | --- |
 | **Haiku**（快速轻量） | `help`、`sprint-status`、`story-readiness`、`scope-check`、`changelog`、`patch-notes`、`onboard`、`project-stage-detect` | 只读检查、状态查询、简单格式化 |
-| **Opus**（深度推理） | `gate-check`、`review-all-srs`、`architecture-review` | 多文档综合、高风险决策、复杂审查 |
+| **Opus**（深度推理） | `gate-check`、`review-all-srs`、`architecture-review`、`asset-review` | 多文档综合、高风险决策、复杂审查 |
 | **Sonnet**（标准能力） | 其余所有技能 | 实现与设计任务的默认选择 |
 
 ## 2. 按阶段分类的技能清单
@@ -121,7 +121,7 @@
 | `/team-security` | Sonnet | 安全团队编排，协调安全审计相关 Agent |
 | `/team-devops` | Sonnet | DevOps 团队编排，协调基础设施相关 Agent |
 
-### 2.10 工具类（9 个）
+### 2.10 工具类（14 个）
 
 | 命令 | 模型 | 说明 |
 | --- | --- | --- |
@@ -134,6 +134,11 @@
 | `/test-helpers` | Sonnet | 测试辅助库与工厂函数生成 |
 | `/localize` | Sonnet | 国际化扫描、提取与验证 |
 | `/milestone-review` | Sonnet | 里程碑审查，检查里程碑进度 |
+| `/create-asset` | Sonnet | 动态扩展统一入口，引导选择创建 Agent/Skill/Rule |
+| `/create-agent` | Sonnet | 创建新专家 Agent，六阶段工作流确保合规 |
+| `/create-skill` | Sonnet | 创建新技能，符合 Agent Skills 开放标准 |
+| `/create-rule` | Sonnet | 创建新路径规则，确保不与现有规则冲突 |
+| `/asset-review` | Opus | 资产审核，总监层审核新增资产提案 |
 
 ### 2.11 平台工具（2 个）
 
@@ -155,9 +160,9 @@
 | 测试优化阶段 | 7 |
 | 发布部署阶段 | 6 |
 | 团队编排 | 7 |
-| 工具类 | 9 |
+| 工具类 | 14 |
 | 平台工具 | 2 |
-| **合计** | **74** |
+| **合计** | **79** |
 
 ## 4. 技能定义格式
 
@@ -206,3 +211,15 @@ artifact:
 - 技能变更后应运行 `/skill-test` 验证
 - 技能改进可使用 `/skill-improve` 命令
 - 技能变更需通过 `chief-architect` 审批
+
+### 6.1 动态扩展机制
+
+Software Engineering Studios 支持根据项目需求动态新增 Agent、技能和规则：
+
+- **创建新资产**：使用 `/create-asset`（统一入口）、`/create-agent`、`/create-skill`、`/create-rule`
+- **资产审核**：使用 `/asset-review`，由 chief-architect 执行 CA-ASSET 门禁审核
+- **六阶段工作流**：提案→草稿→审核→批准→注册→同步
+- **注册与追踪**：所有新增资产注册到 `asset-registry.yaml`，变更记录到 `asset-changelog.md`
+- **权限矩阵**：总监层和部门负责人层可提案，chief-architect 审核，用户最终批准
+
+完整规范详见 `docs/extension-mechanism.md`。

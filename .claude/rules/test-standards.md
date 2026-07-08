@@ -1,6 +1,12 @@
 ---
 paths:
   - "tests/**"
+platforms:
+  claude-code: {enabled: true, path: .claude/rules/test-standards.md}
+  cursor: {enabled: true, type: auto-attached, globs: "tests/**"}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, mode: append}
+  trae: {enabled: true, mode: append}
 ---
 # 测试标准
 

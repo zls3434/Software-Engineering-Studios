@@ -1,17 +1,27 @@
 ---
 name: team-security
-description: 编排安全审查团队管线，协调安全负责人、安全工程师、性能工程师与代码审查员按序完成审计计划、漏洞扫描修复、性能影响评估与修复代码审查。
-argument-hint: "[模块或系统名]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Bash
-  - Task
-  - AskUserQuestion
-model: sonnet
+description: "编排安全审查团队管线，协调安全负责人、安全工程师、性能工程师与代码审查员按序完成审计计划、漏洞扫描修复、性能影响评估与修复代码审查。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[模块或系统名]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Bash
+    - Task
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /team-security}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # team-security — 安全审查团队编排

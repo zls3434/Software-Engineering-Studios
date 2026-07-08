@@ -1,15 +1,25 @@
 ---
 name: test-setup
-description: 根据技术栈配置测试框架与CI管线，搭建单元/集成/E2E测试基础设施。
-argument-hint: ""
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Bash
-model: sonnet
+description: "根据技术栈配置测试框架与CI管线，搭建单元/集成/E2E测试基础设施。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: ""
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Bash
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /test-setup}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # test-setup — 测试框架搭建

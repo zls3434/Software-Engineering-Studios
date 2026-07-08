@@ -14,6 +14,14 @@ skills:
   - design-review
   - consistency-check
   - brainstorm
+platforms:
+  claude-code: {enabled: true, path: .claude/agents/system-analyst.md}
+  cursor: {enabled: true, type: agent-requested-rule}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, type: workflow}
+  trae: {enabled: true, type: agent}
+  hermes: {enabled: false}
+  workbuddy: {enabled: true}
 ---
 
 # 系统分析师（System Analyst）

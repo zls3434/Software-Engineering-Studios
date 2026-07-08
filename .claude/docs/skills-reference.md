@@ -1,14 +1,14 @@
 <!-- Software Engineering Studios -->
 # 技能参考
 
-本文件列出 Software Engineering Studios 中配置的 74 个技能（Skill），按开发阶段分类，并标注模型层级分配。所有技能定义源文件位于 `.studio/skills/` 目录，通过同步脚本输出到各平台。
+本文件列出 Software Engineering Studios 中配置的 79 个技能（Skill），按开发阶段分类，并标注模型层级分配。所有技能定义源文件位于 `.studio/skills/` 目录，通过同步脚本输出到各平台。
 
 ## 1. 模型层级分配
 
 | 模型层级 | 适用技能 | 分配原则 |
 | --- | --- | --- |
 | **Haiku**（快速轻量） | `help`、`sprint-status`、`story-readiness`、`scope-check`、`changelog`、`patch-notes`、`onboard`、`project-stage-detect` | 只读检查、状态查询、简单格式化 |
-| **Opus**（深度推理） | `gate-check`、`review-all-srs`、`architecture-review` | 多文档综合、高风险决策、复杂审查 |
+| **Opus**（深度推理） | `gate-check`、`review-all-srs`、`architecture-review`、`asset-review` | 多文档综合、高风险决策、复杂审查 |
 | **Sonnet**（标准能力） | 其余所有技能 | 实现与设计任务的默认选择 |
 
 ## 2. 按阶段分类的技能清单
@@ -121,7 +121,7 @@
 | `/team-security` | Sonnet | 安全团队编排，协调安全审计相关 Agent |
 | `/team-devops` | Sonnet | DevOps 团队编排，协调基础设施相关 Agent |
 
-### 2.10 工具类（9 个）
+### 2.10 工具类（14 个）
 
 | 命令 | 模型 | 说明 |
 | --- | --- | --- |
@@ -134,6 +134,11 @@
 | `/test-helpers` | Sonnet | 测试辅助库与工厂函数生成 |
 | `/localize` | Sonnet | 国际化扫描、提取与验证 |
 | `/milestone-review` | Sonnet | 里程碑审查，检查里程碑进度 |
+| `/create-asset` | Sonnet | 动态扩展统一入口，引导选择创建 Agent/Skill/Rule |
+| `/create-agent` | Sonnet | 创建新专家 Agent，六阶段工作流确保合规 |
+| `/create-skill` | Sonnet | 创建新技能，符合 Agent Skills 开放标准 |
+| `/create-rule` | Sonnet | 创建新路径规则，确保不与现有规则冲突 |
+| `/asset-review` | Opus | 资产审核，总监层审核新增资产提案 |
 
 ### 2.11 平台工具（2 个）
 
@@ -155,9 +160,9 @@
 | 测试优化阶段 | 7 |
 | 发布部署阶段 | 6 |
 | 团队编排 | 7 |
-| 工具类 | 9 |
+| 工具类 | 14 |
 | 平台工具 | 2 |
-| **合计** | **74** |
+| **合计** | **79** |
 
 ## 4. 技能定义格式
 
@@ -207,34 +212,14 @@ artifact:
 - 技能改进可使用 `/skill-improve` 命令
 - 技能变更需通过 `chief-architect` 审批
 
-## 7. 跨平台兼容性
+### 6.1 动态扩展机制
 
-### 规范源与输出层
+Software Engineering Studios 支持根据项目需求动态新增 Agent、技能和规则：
 
-所有技能的规范源定义位于 `.studio/skills/` 目录，通过同步脚本（`tools/adapters/`）输出到各平台。
+- **创建新资产**：使用 `/create-asset`（统一入口）、`/create-agent`、`/create-skill`、`/create-rule`
+- **资产审核**：使用 `/asset-review`，由 chief-architect 执行 CA-ASSET 门禁审核
+- **六阶段工作流**：提案→草稿→审核→批准→注册→同步
+- **注册与追踪**：所有新增资产注册到 `asset-registry.yaml`，变更记录到 `asset-changelog.md`
+- **权限矩阵**：总监层和部门负责人层可提案，chief-architect 审核，用户最终批准
 
-### 各平台技能格式映射
-
-| 平台 | 技能目录 | 格式说明 |
-| --- | --- | --- |
-| Claude Code | `.claude/skills/*/SKILL.md` | metadata 字段提升为顶层（model、user-invocable 等） |
-| Cursor | `.cursor/skills/*/SKILL.md` | 直接复制 .studio 格式（Agent Skills 兼容） |
-| Trae IDE | `.trae/skills/*/SKILL.md` | 直接复制 .studio 格式（Agent Skills 兼容） |
-| Windsurf | `.windsurf/workflows/*.md` | 转为工作流格式（提取 body，添加触发说明） |
-| Hermes | `.hermes/skills/*/SKILL.md` | 添加 version、platforms、metadata.hermes 字段 |
-| WorkBuddy | `.workbuddy/skills/*/SKILL.md` | 直接复制 .studio 格式（Agent Skills 兼容） |
-| Codex | 无独立技能目录 | 通过 AGENTS.md 章节描述 |
-
-### 平台特性差异
-
-- **Claude Code**：支持 `model` 字段指定模型层级（opus/sonnet/haiku），支持 `allowed-tools` 限制工具范围
-- **其他平台**：模型层级和工具限制由平台默认配置决定，技能中的 `model` 字段作为建议参考
-- **Windsurf**：技能通过 `/` 命令触发，工作流文件以纯 Markdown 格式存储
-- **Hermes**：技能支持 `load_mode: on-demand` 按需加载，`tags` 用于技能分类
-
-### 技能变更流程
-
-1. 在 `.studio/skills/对应技能/SKILL.md` 中修改
-2. 运行 `bash tools/adapters/sync-all.sh` 同步到所有平台
-3. 运行 `/platform-check` 验证一致性
-4. 提交变更
+完整规范详见 `docs/extension-mechanism.md`。

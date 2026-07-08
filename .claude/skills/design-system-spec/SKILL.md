@@ -1,15 +1,25 @@
 ---
 name: design-system-spec
-description: 编写设计系统规范，使用 design-system-spec.md 模板定义设计令牌、组件库、排版与色彩体系。
-argument-hint: "[产品名]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "编写设计系统规范，使用 design-system-spec.md 模板定义设计令牌、组件库、排版与色彩体系。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[产品名]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /design-system-spec}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # design-system-spec — 设计系统规范编写

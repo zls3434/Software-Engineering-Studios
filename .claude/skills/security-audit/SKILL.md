@@ -1,16 +1,26 @@
 ---
 name: security-audit
-description: 审计安全漏洞，覆盖注入、XSS、CSRF、认证绕过、数据暴露等常见风险并生成含严重级别的修复报告。
-argument-hint: ""
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Bash
-  - AskUserQuestion
-model: sonnet
+description: "审计安全漏洞，覆盖注入、XSS、CSRF、认证绕过、数据暴露等常见风险并生成含严重级别的修复报告。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: ""
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Bash
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /security-audit}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # security-audit — 安全审计

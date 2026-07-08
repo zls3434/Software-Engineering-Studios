@@ -1,14 +1,24 @@
 ---
 name: story-readiness
-description: 验证 Story 是否就绪可开发。检查必要字段、依赖、验收标准、技术注册表链接是否齐备，输出就绪清单与阻塞项。
-argument-hint: "[故事路径]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-model: haiku
+description: "验证 Story 是否就绪可开发。检查必要字段、依赖、验收标准、技术注册表链接是否齐备，输出就绪清单与阻塞项。"
+license: MIT
+metadata:
+  model: haiku
+  argument-hint: "[故事路径]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /story-readiness}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # story-readiness —— Story 就绪验证技能

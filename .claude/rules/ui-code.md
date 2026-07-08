@@ -1,6 +1,12 @@
 ---
 paths:
   - "src/frontend/**/components/**"
+platforms:
+  claude-code: {enabled: true, path: .claude/rules/ui-code.md}
+  cursor: {enabled: true, type: auto-attached, globs: "src/frontend/**/components/**"}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, mode: append}
+  trae: {enabled: true, mode: append}
 ---
 # UI 代码规范
 

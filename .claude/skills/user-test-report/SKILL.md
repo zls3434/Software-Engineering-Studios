@@ -1,15 +1,25 @@
 ---
 name: user-test-report
-description: 创建或分析用户测试反馈，收集用户测试数据，分析反馈模式，识别共性问题，按严重度排序并生成改进建议报告。
-argument-hint: "[测试轮次]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "创建或分析用户测试反馈，收集用户测试数据，分析反馈模式，识别共性问题，按严重度排序并生成改进建议报告。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[测试轮次]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /user-test-report}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # user-test-report — 用户测试报告

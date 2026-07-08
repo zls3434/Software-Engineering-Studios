@@ -1,15 +1,25 @@
 ---
 name: milestone-review
-description: 审查里程碑进度，检查已完成与未完成 Story，评估风险并生成进度报告。
-argument-hint: "[里程碑编号]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "审查里程碑进度，检查已完成与未完成 Story，评估风险并生成进度报告。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[里程碑编号]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /milestone-review}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # milestone-review — 里程碑进度审查

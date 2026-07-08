@@ -4,6 +4,12 @@ paths:
   - "**/Dockerfile*"
   - "**/*.yml"
   - "**/docker-compose*"
+platforms:
+  claude-code: {enabled: true, path: .claude/rules/infra-code.md}
+  cursor: {enabled: true, type: auto-attached, globs: "tools/**, **/Dockerfile*, **/*.yml, **/docker-compose*"}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, mode: append}
+  trae: {enabled: true, mode: append}
 ---
 # 基础设施规范
 

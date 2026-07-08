@@ -1,15 +1,25 @@
 ---
 name: start
-description: 首次上手引导技能。检测项目状态、询问用户所处阶段、根据答案路由到对应工作流，并设置审查模式，完成交接。
-argument-hint: ""
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "首次上手引导技能。检测项目状态、询问用户所处阶段、根据答案路由到对应工作流，并设置审查模式，完成交接。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: ""
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /start}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # start — 首次上手引导

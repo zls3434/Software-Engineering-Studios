@@ -1,15 +1,25 @@
 ---
 name: day-one-patch
-description: 为首日已知问题准备聚焦补丁，收集已知 Bug、排序优先级、准备修复并生成补丁说明。
-argument-hint: "[版本号]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "为首日已知问题准备聚焦补丁，收集已知 Bug、排序优先级、准备修复并生成补丁说明。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[版本号]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /day-one-patch}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # day-one-patch — 首日已知问题补丁准备

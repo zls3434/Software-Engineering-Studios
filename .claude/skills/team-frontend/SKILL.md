@@ -1,16 +1,26 @@
 ---
 name: team-frontend
-description: 编排前端团队协作管线，协调 UX 设计负责人、前端架构师、框架专家、测试工程师与代码审查员按序交付前端功能。
-argument-hint: "[功能描述]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Task
-  - AskUserQuestion
-model: sonnet
+description: "编排前端团队协作管线，协调 UX 设计负责人、前端架构师、框架专家、测试工程师与代码审查员按序交付前端功能。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[功能描述]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Task
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /team-frontend}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # team-frontend — 前端团队编排

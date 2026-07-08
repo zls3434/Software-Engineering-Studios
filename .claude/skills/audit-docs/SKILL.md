@@ -1,14 +1,24 @@
 ---
 name: audit-docs
-description: 审计文档与代码合规性，扫描文档目录，检查命名规范，验证 JSON/YAML 格式，检查文档元数据完整性并生成合规报告。
-argument-hint: ""
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-model: sonnet
+description: "审计文档与代码合规性，扫描文档目录，检查命名规范，验证 JSON/YAML 格式，检查文档元数据完整性并生成合规报告。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: ""
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /audit-docs}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # audit-docs — 文档与代码合规性审计

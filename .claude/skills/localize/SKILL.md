@@ -1,16 +1,26 @@
 ---
 name: localize
-description: 本地化扫描、提取与验证，扫描源码中的硬编码字符串，提取到 i18n 资源文件，验证完整性并生成本地化检查报告。
-argument-hint: "[语言代码]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Bash
-  - AskUserQuestion
-model: sonnet
+description: "本地化扫描、提取与验证，扫描源码中的硬编码字符串，提取到 i18n 资源文件，验证完整性并生成本地化检查报告。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[语言代码]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Bash
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /localize}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # localize — 本地化扫描与验证

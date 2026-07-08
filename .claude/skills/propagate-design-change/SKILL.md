@@ -1,15 +1,25 @@
 ---
 name: propagate-design-change
-description: 分析 SRS 变更影响，找到受影响的 ADR 与 Story，列出需更新的文档清单。
-argument-hint: "[变更的SRS路径]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "分析 SRS 变更影响，找到受影响的 ADR 与 Story，列出需更新的文档清单。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[变更的SRS路径]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /propagate-design-change}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # propagate-design-change — 设计变更传播分析

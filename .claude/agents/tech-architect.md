@@ -13,6 +13,15 @@ maxTurns: 25
 skills:
   - create-architecture
   - architecture-decision
+  - create-rule
+platforms:
+  claude-code: {enabled: true, path: .claude/agents/tech-architect.md}
+  cursor: {enabled: true, type: agent-requested-rule}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, type: workflow}
+  trae: {enabled: true, type: agent}
+  hermes: {enabled: false}
+  workbuddy: {enabled: true}
 ---
 
 # 技术架构师（Tech Architect）
@@ -44,6 +53,7 @@ skills:
 3. **数据模型设计**：定义实体关系、数据流向、一致性约束，与 database-engineer 协作完成 schema。
 4. **序列图绘制**：以文字或标准记法描述关键流程的调用序列，明确同步/异步、阻塞/非阻塞、成功/失败路径。
 5. **技术设计文档编写**：维护技术设计文档库，确保每次架构变更都有对应的设计文档更新。
+6. **规则扩展初审**：对新路径规则提案进行初审，评估路径范围是否与现有规则冲突、规范条目是否清晰可执行，初审通过后提交至 chief-architect 终审。
 
 ## 决策框架
 

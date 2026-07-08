@@ -1,17 +1,27 @@
 ---
 name: team-devops
-description: 编排 DevOps 团队协作管线，协调 DevOps 负责人、云架构师、DevOps 工程师与 SRE 工程师按序完成策略制定、云架构设计、CI/CD 实施与监控告警配置。
-argument-hint: "[项目或环境名]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Bash
-  - Task
-  - AskUserQuestion
-model: sonnet
+description: "编排 DevOps 团队协作管线，协调 DevOps 负责人、云架构师、DevOps 工程师与 SRE 工程师按序完成策略制定、云架构设计、CI/CD 实施与监控告警配置。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[项目或环境名]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Bash
+    - Task
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /team-devops}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # team-devops — DevOps 团队编排

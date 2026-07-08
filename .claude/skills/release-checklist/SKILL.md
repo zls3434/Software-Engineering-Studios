@@ -1,15 +1,25 @@
 ---
 name: release-checklist
-description: 验证发布前检查清单，逐项确认代码审查、测试、文档、迁移、配置、回滚计划等就绪。
-argument-hint: "[版本号]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "验证发布前检查清单，逐项确认代码审查、测试、文档、迁移、配置、回滚计划等就绪。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[版本号]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /release-checklist}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # release-checklist — 发布前检查清单验证

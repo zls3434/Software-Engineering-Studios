@@ -1,17 +1,27 @@
 ---
 name: build-mvp
-description: MVP端到端构建，验证完整业务流程可行性，产出 mvp-report.md。
-argument-hint: ""
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Bash
-  - Task
-  - AskUserQuestion
-model: sonnet
+description: "MVP端到端构建，验证完整业务流程可行性，产出 mvp-report.md。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: ""
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Bash
+    - Task
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /build-mvp}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # build-mvp — MVP 端到端构建

@@ -1,15 +1,25 @@
 ---
 name: map-modules
-description: 将需求分解为模块，映射依赖关系、分配优先级，创建 systems-index.md。
-argument-hint: "[概念文件路径]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "将需求分解为模块，映射依赖关系、分配优先级，创建 systems-index.md。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[概念文件路径]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /map-modules}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # map-modules — 需求模块分解

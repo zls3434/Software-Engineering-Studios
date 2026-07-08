@@ -489,3 +489,61 @@ phases:
           glob: "production/releases/patch-notes-*.md"
           pattern: "production/releases/patch-notes-vX.Y.Z.md"
           min_count: 0
+
+  # ============================================================
+  # 阶段 8：动态扩展（跨阶段，按需触发）
+  # ============================================================
+  - id: dynamic-extension
+    label: "动态扩展"
+    description: "根据项目需求动态新增 Agent、Skill 或 Rule，经审核批准后注册并同步到所有平台"
+    next_phase: null
+    steps:
+      - id: create-asset
+        name: "创建资产"
+        command: /create-asset
+        required: false
+        description: "统一入口，引导选择创建 Agent/Skill/Rule，路由至对应专项工作流"
+        artifact:
+          glob: ".studio/registry/proposals/*.md"
+          pattern: ".studio/registry/proposals/{type}-NNN-{name}-proposal.md"
+          min_count: 0
+
+      - id: create-agent
+        name: "创建专家 Agent"
+        command: /create-agent
+        required: false
+        description: "创建新专家 Agent，通过六阶段工作流确保合规并经总监层审核"
+        artifact:
+          glob: ".studio/agents/*.md"
+          pattern: ".studio/agents/{name}.md"
+          min_count: 0
+
+      - id: create-skill
+        name: "创建技能"
+        command: /create-skill
+        required: false
+        description: "创建新技能，通过六阶段工作流确保符合 Agent Skills 开放标准"
+        artifact:
+          glob: ".studio/skills/*/SKILL.md"
+          pattern: ".studio/skills/{name}/SKILL.md"
+          min_count: 0
+
+      - id: create-rule
+        name: "创建路径规则"
+        command: /create-rule
+        required: false
+        description: "创建新路径规则，通过六阶段工作流确保不与现有规则冲突"
+        artifact:
+          glob: ".studio/rules/*.md"
+          pattern: ".studio/rules/{name}.md"
+          min_count: 0
+
+      - id: asset-review
+        name: "资产审核"
+        command: /asset-review
+        required: false
+        description: "总监层审核待审资产提案，生成审核报告，支持 APPROVE/CONCERNS/REJECT 判定"
+        artifact:
+          glob: ".studio/registry/reviews/*.md"
+          pattern: ".studio/registry/reviews/{type}-{name}-review.md"
+          min_count: 0

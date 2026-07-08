@@ -2,6 +2,12 @@
 paths:
   - "**/config/**"
   - "**/*.env*"
+platforms:
+  claude-code: {enabled: true, path: .claude/rules/config-code.md}
+  cursor: {enabled: true, type: auto-attached, globs: "**/config/**, **/*.env*"}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, mode: append}
+  trae: {enabled: true, mode: append}
 ---
 # 配置规范
 

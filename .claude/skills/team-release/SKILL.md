@@ -1,17 +1,27 @@
 ---
 name: team-release
-description: 编排发布团队协作管线，协调发布经理、DevOps 负责人、QA 负责人与安全负责人按序完成发布计划、部署准备、质量验证、安全审查与签发。
-argument-hint: "[版本号]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Bash
-  - Task
-  - AskUserQuestion
-model: sonnet
+description: "编排发布团队协作管线，协调发布经理、DevOps 负责人、QA 负责人与安全负责人按序完成发布计划、部署准备、质量验证、安全审查与签发。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[版本号]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Bash
+    - Task
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /team-release}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # team-release — 发布团队编排

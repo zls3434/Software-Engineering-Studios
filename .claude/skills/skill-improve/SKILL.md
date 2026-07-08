@@ -1,15 +1,25 @@
 ---
 name: skill-improve
-description: 使用测试-修复-重测循环改进技能，运行 skill-test 识别问题，提出修复方案，用户批准后重写 SKILL.md 并重测验证。
-argument-hint: "[技能名]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "使用测试-修复-重测循环改进技能，运行 skill-test 识别问题，提出修复方案，用户批准后重写 SKILL.md 并重测验证。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[技能名]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /skill-improve}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # skill-improve — 技能改进

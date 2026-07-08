@@ -1,17 +1,27 @@
 ---
 name: brainstorm
-description: 产品概念创意构思。通过情感锚点、品味画像、约束识别，生成多个产品概念并验证范围与可行性，产出 product-concept.md。
-argument-hint: ""
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - WebSearch
-  - Task
-  - AskUserQuestion
-model: sonnet
+description: "产品概念创意构思。通过情感锚点、品味画像、约束识别，生成多个产品概念并验证范围与可行性，产出 product-concept.md。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: ""
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - WebSearch
+    - Task
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /brainstorm}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # brainstorm — 产品概念创意构思

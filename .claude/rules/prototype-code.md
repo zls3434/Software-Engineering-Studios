@@ -1,6 +1,12 @@
 ---
 paths:
   - "prototypes/**"
+platforms:
+  claude-code: {enabled: true, path: .claude/rules/prototype-code.md}
+  cursor: {enabled: true, type: auto-attached, globs: "prototypes/**"}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, mode: append}
+  trae: {enabled: true, mode: append}
 ---
 # 原型规范
 

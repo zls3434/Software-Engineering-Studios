@@ -1,14 +1,24 @@
 ---
 name: content-audit
-description: 对比 SRS 指定内容与已实现内容，发现需求与实现之间的差距，映射需求到实现并标记缺失或多余功能，生成差距报告。
-argument-hint: ""
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-model: sonnet
+description: "对比 SRS 指定内容与已实现内容，发现需求与实现之间的差距，映射需求到实现并标记缺失或多余功能，生成差距报告。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: ""
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /content-audit}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # content-audit — 内容审计与差距分析

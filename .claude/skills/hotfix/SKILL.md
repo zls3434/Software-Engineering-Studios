@@ -1,16 +1,26 @@
 ---
 name: hotfix
-description: 带审计追踪的紧急修复技能。针对阻断性缺陷执行最小化修复，记录完整审计轨迹（根因、变更、验证、回滚方案），确保紧急修复安全可控。
-argument-hint: "[Bug 编号或现象简述]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Bash
-  - AskUserQuestion
-model: sonnet
+description: "带审计追踪的紧急修复技能。针对阻断性缺陷执行最小化修复，记录完整审计轨迹（根因、变更、验证、回滚方案），确保紧急修复安全可控。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[Bug 编号或现象简述]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Bash
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /hotfix}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # hotfix —— 紧急修复技能

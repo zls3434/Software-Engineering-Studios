@@ -1,15 +1,25 @@
 ---
 name: architecture-review
-description: 验证架构完整性、依赖排序与技术栈兼容性，两阶段检查并引导生成需求可追溯矩阵。
-argument-hint: ""
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Task
-model: opus
+description: "验证架构完整性、依赖排序与技术栈兼容性，两阶段检查并引导生成需求可追溯矩阵。"
+license: MIT
+metadata:
+  model: opus
+  argument-hint: ""
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Task
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /architecture-review}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # architecture-review — 架构完整性审查

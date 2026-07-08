@@ -1,15 +1,25 @@
 ---
 name: sprint-plan
-description: Sprint规划，使用 sprint-plan.md 模板定义Sprint目标、 backlog与容量分配。
-argument-hint: "[new或update]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "Sprint规划，使用 sprint-plan.md 模板定义Sprint目标、 backlog与容量分配。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[new或update]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /sprint-plan}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # sprint-plan — Sprint 规划

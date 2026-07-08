@@ -1,15 +1,25 @@
 ---
 name: retrospective
-description: Sprint 或里程碑回顾技能。汇总周期内 Story、Bug、Hotfix 数据，引导团队完成回顾五步法，产出可追踪的行动项清单。
-argument-hint: "[Sprint-id 或里程碑名称]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "Sprint 或里程碑回顾技能。汇总周期内 Story、Bug、Hotfix 数据，引导团队完成回顾五步法，产出可追踪的行动项清单。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[Sprint-id 或里程碑名称]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /retrospective}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # retrospective —— Sprint/里程碑回顾技能

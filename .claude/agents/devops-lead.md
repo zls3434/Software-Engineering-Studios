@@ -13,6 +13,14 @@ maxTurns: 20
 skills:
   - release-checklist
   - launch-checklist
+platforms:
+  claude-code: {enabled: true, path: .claude/agents/devops-lead.md}
+  cursor: {enabled: true, type: agent-requested-rule}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, type: workflow}
+  trae: {enabled: true, type: agent}
+  hermes: {enabled: false}
+  workbuddy: {enabled: true}
 ---
 
 # DevOps 负责人（DevOps Lead）

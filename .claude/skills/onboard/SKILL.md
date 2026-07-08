@@ -1,14 +1,24 @@
 ---
 name: onboard
-description: 为指定角色生成入职文档，读取相关 Agent 定义和技能列表，生成该角色的入职指南。
-argument-hint: "[角色名]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-model: haiku
+description: "为指定角色生成入职文档，读取相关 Agent 定义和技能列表，生成该角色的入职指南。"
+license: MIT
+metadata:
+  model: haiku
+  argument-hint: "[角色名]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /onboard}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # onboard — 角色入职文档生成

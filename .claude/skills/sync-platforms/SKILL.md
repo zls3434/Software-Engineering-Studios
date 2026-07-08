@@ -1,12 +1,22 @@
 ---
 name: sync-platforms
 description: 将 .studio/ 规范源同步到所有已启用平台的配置目录。运行各平台适配脚本，生成或更新 Claude Code、Codex、Cursor、Windsurf、Trae IDE、Hermes Agent、WorkBuddy 的配置文件。
-model: sonnet
-user-invocable: true
-allowed-tools:
-  - Bash
-  - Read
-  - Glob
+license: MIT
+metadata:
+  model: sonnet
+  user-invocable: true
+  allowed-tools:
+    - Bash
+    - Read
+    - Glob
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /sync-platforms}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # sync-platforms — 平台同步

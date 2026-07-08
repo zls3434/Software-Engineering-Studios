@@ -1,16 +1,26 @@
 ---
 name: team-backend
-description: 编排后端团队协作管线，协调技术架构师、后端架构师、语言专家、数据库工程师、测试工程师与代码审查员按序交付后端功能。
-argument-hint: "[功能描述]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Task
-  - AskUserQuestion
-model: sonnet
+description: "编排后端团队协作管线，协调技术架构师、后端架构师、语言专家、数据库工程师、测试工程师与代码审查员按序交付后端功能。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[功能描述]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Task
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /team-backend}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # team-backend — 后端团队编排

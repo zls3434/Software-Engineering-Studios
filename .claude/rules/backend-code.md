@@ -1,6 +1,12 @@
 ---
 paths:
   - "src/backend/**"
+platforms:
+  claude-code: {enabled: true, path: .claude/rules/backend-code.md}
+  cursor: {enabled: true, type: auto-attached, globs: "src/backend/**"}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, mode: append}
+  trae: {enabled: true, mode: append}
 ---
 # 后端代码规范
 

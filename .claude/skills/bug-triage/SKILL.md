@@ -1,15 +1,25 @@
 ---
 name: bug-triage
-description: Bug 重新优先排序技能。读取所有未解决 Bug，按严重度、影响面、紧急度重新排序，输出分流建议与处理路径分配。
-argument-hint: "[可选: Sprint-id 或 Bug 列表路径]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "Bug 重新优先排序技能。读取所有未解决 Bug，按严重度、影响面、紧急度重新排序，输出分流建议与处理路径分配。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[可选: Sprint-id 或 Bug 列表路径]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /bug-triage}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # bug-triage —— Bug 重新优先排序技能

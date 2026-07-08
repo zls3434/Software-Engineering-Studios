@@ -1,15 +1,25 @@
 ---
 name: smoke-check
-description: 运行关键路径冒烟测试，快速验证系统核心功能可用性并生成通过/失败报告。
-argument-hint: ""
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Bash
-model: sonnet
+description: "运行关键路径冒烟测试，快速验证系统核心功能可用性并生成通过/失败报告。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: ""
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Bash
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /smoke-check}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # smoke-check — 关键路径冒烟测试

@@ -14,6 +14,14 @@ maxTurns: 20
 skills:
   - security-audit
   - perf-profile
+platforms:
+  claude-code: {enabled: true, path: .claude/agents/cloud-architect.md}
+  cursor: {enabled: true, type: agent-requested-rule}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, type: workflow}
+  trae: {enabled: true, type: agent}
+  hermes: {enabled: false}
+  workbuddy: {enabled: true}
 ---
 
 # 云架构师（Cloud Architect）

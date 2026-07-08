@@ -1,13 +1,23 @@
 ---
 name: sprint-status
-description: Sprint 进度快照技能。生成不超过 30 行的 Sprint 状态摘要，含 Story 完成数、进行中、阻塞项与风险提示。
-argument-hint: "[sprint-id]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-model: haiku
+description: "Sprint 进度快照技能。生成不超过 30 行的 Sprint 状态摘要，含 Story 完成数、进行中、阻塞项与风险提示。"
+license: MIT
+metadata:
+  model: haiku
+  argument-hint: "[sprint-id]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /sprint-status}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # sprint-status —— Sprint 进度快照技能

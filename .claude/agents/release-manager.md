@@ -17,6 +17,14 @@ skills:
   - changelog
   - patch-notes
   - milestone-review
+platforms:
+  claude-code: {enabled: true, path: .claude/agents/release-manager.md}
+  cursor: {enabled: true, type: agent-requested-rule}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, type: workflow}
+  trae: {enabled: true, type: agent}
+  hermes: {enabled: false}
+  workbuddy: {enabled: true}
 ---
 
 # 发布经理（Release Manager）

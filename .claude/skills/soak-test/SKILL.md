@@ -1,15 +1,25 @@
 ---
 name: soak-test
-description: 生成持续运行压力测试协议，定义压力场景、持续时间、并发数与监控指标，产出测试脚本与报告模板。
-argument-hint: ""
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "生成持续运行压力测试协议，定义压力场景、持续时间、并发数与监控指标，产出测试脚本与报告模板。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: ""
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /soak-test}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # soak-test — 持续运行压力测试协议

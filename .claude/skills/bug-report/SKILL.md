@@ -1,15 +1,25 @@
 ---
 name: bug-report
-description: 创建结构化 Bug 报告技能。收集复现步骤、环境信息、预期与实际行为，生成符合项目模板的 Bug 报告文件并登记到 Bug 列表。
-argument-hint: "[Bug 标题或现象简述]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "创建结构化 Bug 报告技能。收集复现步骤、环境信息、预期与实际行为，生成符合项目模板的 Bug 报告文件并登记到 Bug 列表。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[Bug 标题或现象简述]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /bug-report}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # bug-report —— 结构化 Bug 报告技能

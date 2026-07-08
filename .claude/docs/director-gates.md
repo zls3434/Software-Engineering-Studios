@@ -12,6 +12,7 @@
 | CA-ARCHITECTURE | 首席架构师 | 验证架构 | APPROVE / CONCERNS / REJECT |
 | CA-FEASIBILITY | 首席架构师 | 技术可行性评估 | APPROVE / CONCERNS / REJECT |
 | PM-SCOPE | 项目经理 | 范围评估 | APPROVE / CONCERNS / REJECT |
+| CA-ASSET | 首席架构师 | 资产扩展审核 | APPROVE / CONCERNS / REJECT |
 
 **门禁判定含义：**
 
@@ -366,6 +367,46 @@
    - CONCERNS → 记录关注项，修复后继续
    - REJECT → 修复后重新提交门禁审查
 6. **更新状态**：在 `active.md` 中记录门禁结果
+
+### 7.1 资产扩展门禁（CA-ASSET）
+
+**负责总监：** `chief-architect`（首席架构师）
+
+### 触发条件
+
+- 通过 `/create-agent`、`/create-skill` 或 `/create-rule` 创建资产草案后
+- 调用 `/asset-review` 命令时
+
+### 传入数据
+
+| 参数 | 类型 | 说明 |
+| --- | --- | --- |
+| 资产类型 | 字符串 | agent / skill / rule |
+| 资产名称 | 字符串 | kebab-case 资产名称 |
+| 提案文档 | 文件引用 | `.studio/registry/proposals/` 下的提案文件 |
+| 草稿文件 | 文件引用 | 资产定义草稿文件路径 |
+
+### 判定标准
+
+| 判定 | 条件 |
+| --- | --- |
+| **APPROVE** | 新资产职责清晰、不与现有资产重叠、模式合规、有明确需求驱动 |
+| **CONCERNS** | 基本合理但部分规范不完整或职责边界略模糊，可通过修改草稿解决 |
+| **REJECT** | 职责与现有资产重叠、模式不合规、缺乏明确需求驱动 |
+
+### 审核检查清单
+
+**Agent**：职责不重叠 / 模型层级合理 / 委托图完整 / 协作协议明确 / Body 六章节完整 / platforms 配置正确
+
+**Skill**：名称合规（kebab-case、1-64 字符、不重复）/ frontmatter 完整 / Body 五章节完整 / 模型层级合理 / 不与现有技能重复
+
+**Rule**：路径不冲突 / 规范条目清晰 / 示例完整（正确+错误）/ platforms 配置正确
+
+### 输出
+
+审核报告保存至 `.studio/registry/reviews/[资产类型]-[资产名称]-review.md`，并更新 `asset-registry.yaml` 中条目状态为 `reviewed`。
+
+完整规范详见 `docs/extension-mechanism.md`。
 
 ## 8. 门禁与阶段映射
 

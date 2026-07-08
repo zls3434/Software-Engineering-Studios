@@ -233,6 +233,20 @@ solo
 - 门禁判定可参考审查报告
 - 审查不通过可能导致门禁判定为 CONCERNS 或 REJECT
 
+### 4.1 资产审查
+
+资产审查是针对动态扩展机制新增资产（Agent/Skill/Rule）的专项审查：
+
+- **触发命令**：`/asset-review [资产类型] [资产名称]`
+- **执行者**：chief-architect（对应 CA-ASSET 门禁）
+- **审查对象**：通过 `/create-agent`、`/create-skill` 或 `/create-rule` 创建的资产草案
+- **审查标准**：依据资产类型执行对应检查清单（详见 `docs/extension-mechanism.md` 第 6 节）
+- **判定标准**：APPROVE / CONCERNS / REJECT（与门禁判定一致）
+- **报告归档**：`.studio/registry/reviews/`
+- **完整规范**：详见 `docs/extension-mechanism.md`
+
+资产审查与常规审查的区别：资产审查聚焦于新增资产本身的合规性和必要性，常规审查聚焦于阶段产出物的质量。
+
 ## 5. 审查记录归档
 
 所有审查报告归档存放：

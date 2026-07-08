@@ -1,16 +1,26 @@
 ---
 name: gate-check
-description: 验证阶段就绪度，检查当前阶段所有必需产物并给出 PASS/CONCERNS/FAIL 门禁评估。
-argument-hint: "[阶段名称]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Task
-  - AskUserQuestion
-model: opus
+description: "验证阶段就绪度，检查当前阶段所有必需产物并给出 PASS/CONCERNS/FAIL 门禁评估。"
+license: MIT
+metadata:
+  model: opus
+  argument-hint: "[阶段名称]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Task
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /gate-check}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # gate-check — 阶段门禁评估

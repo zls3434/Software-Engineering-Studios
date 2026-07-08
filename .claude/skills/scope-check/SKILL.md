@@ -1,14 +1,24 @@
 ---
 name: scope-check
-description: 范围蔓延检测技能。比对 Story 原始范围与实际实现，识别未经授权的额外功能、范围收缩与隐式需求扩张，输出偏差报告。
-argument-hint: "[故事路径]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-model: haiku
+description: "范围蔓延检测技能。比对 Story 原始范围与实际实现，识别未经授权的额外功能、范围收缩与隐式需求扩张，输出偏差报告。"
+license: MIT
+metadata:
+  model: haiku
+  argument-hint: "[故事路径]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /scope-check}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # scope-check —— 范围蔓延检测技能

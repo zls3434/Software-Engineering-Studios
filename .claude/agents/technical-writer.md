@@ -13,6 +13,14 @@ maxTurns: 15
 skills:
   - content-audit
   - audit-docs
+platforms:
+  claude-code: {enabled: true, path: .claude/agents/technical-writer.md}
+  cursor: {enabled: true, type: agent-requested-rule}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, type: workflow}
+  trae: {enabled: true, type: agent}
+  hermes: {enabled: false}
+  workbuddy: {enabled: true}
 ---
 
 # 技术文档工程师（Technical Writer）

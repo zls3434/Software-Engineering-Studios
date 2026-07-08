@@ -14,6 +14,14 @@ maxTurns: 15
 skills:
   - tech-debt
   - code-review
+platforms:
+  claude-code: {enabled: true, path: .claude/agents/refactoring-engineer.md}
+  cursor: {enabled: true, type: agent-requested-rule}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, type: workflow}
+  trae: {enabled: true, type: agent}
+  hermes: {enabled: false}
+  workbuddy: {enabled: true}
 ---
 
 # 重构工程师（Refactoring Engineer）

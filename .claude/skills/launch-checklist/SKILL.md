@@ -1,16 +1,26 @@
 ---
 name: launch-checklist
-description: 最终发布就绪度验证，运行最终测试、检查生产配置、验证监控告警与回滚方案并签发发布。
-argument-hint: "[版本号]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Bash
-  - AskUserQuestion
-model: sonnet
+description: "最终发布就绪度验证，运行最终测试、检查生产配置、验证监控告警与回滚方案并签发发布。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[版本号]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Bash
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /launch-checklist}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # launch-checklist — 最终发布就绪度验证

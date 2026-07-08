@@ -1,6 +1,12 @@
 ---
 paths:
   - "src/shared/**"
+platforms:
+  claude-code: {enabled: true, path: .claude/rules/shared-code.md}
+  cursor: {enabled: true, type: auto-attached, globs: "src/shared/**"}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, mode: append}
+  trae: {enabled: true, mode: append}
 ---
 # 共享代码规范
 

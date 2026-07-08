@@ -1,15 +1,25 @@
 ---
 name: review-all-srs
-description: 跨SRS一致性检查。两阶段并行：一致性检查(交叉引用验证)与需求分析审查(用户故事完整性/边界情况覆盖)。
-argument-hint: ""
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Task
-model: opus
+description: "跨SRS一致性检查。两阶段并行：一致性检查(交叉引用验证)与需求分析审查(用户故事完整性/边界情况覆盖)。"
+license: MIT
+metadata:
+  model: opus
+  argument-hint: ""
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Task
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /review-all-srs}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # review-all-srs — 跨 SRS 一致性检查

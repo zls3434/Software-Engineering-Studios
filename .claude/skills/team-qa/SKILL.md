@@ -1,17 +1,27 @@
 ---
 name: team-qa
-description: 编排完整 QA 团队周期，协调 QA 负责人、测试工程师、性能工程师与安全工程师按序执行测试计划、测试执行、性能测试、安全测试与签收。
-argument-hint: "[sprint或epic名]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Bash
-  - Task
-  - AskUserQuestion
-model: sonnet
+description: "编排完整 QA 团队周期，协调 QA 负责人、测试工程师、性能工程师与安全工程师按序执行测试计划、测试执行、性能测试、安全测试与签收。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[sprint或epic名]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Bash
+    - Task
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /team-qa}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # team-qa — QA 团队编排

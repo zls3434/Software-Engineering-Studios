@@ -1,16 +1,26 @@
 ---
 name: prototype
-description: 技术原型验证，验证关键技术点可行性，产出 PROCEEDS 或 PIVOTS 结论。
-argument-hint: "[技术点]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Bash
-  - AskUserQuestion
-model: sonnet
+description: "技术原型验证，验证关键技术点可行性，产出 PROCEEDS 或 PIVOTS 结论。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[技术点]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Bash
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /prototype}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # prototype — 技术原型验证

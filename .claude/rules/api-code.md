@@ -2,6 +2,12 @@
 paths:
   - "src/api/**"
   - "docs/api/**"
+platforms:
+  claude-code: {enabled: true, path: .claude/rules/api-code.md}
+  cursor: {enabled: true, type: auto-attached, globs: "src/api/**, docs/api/**"}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, mode: append}
+  trae: {enabled: true, mode: append}
 ---
 # API 规范
 

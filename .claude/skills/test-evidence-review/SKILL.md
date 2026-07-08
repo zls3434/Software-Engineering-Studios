@@ -1,14 +1,24 @@
 ---
 name: test-evidence-review
-description: 审查测试文件与手动证据质量，按 ADEQUATE/INCOMPLETE/MISSING 评级并生成报告。
-argument-hint: ""
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-model: sonnet
+description: "审查测试文件与手动证据质量，按 ADEQUATE/INCOMPLETE/MISSING 评级并生成报告。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: ""
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /test-evidence-review}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # test-evidence-review — 测试证据质量审查

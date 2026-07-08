@@ -1,14 +1,24 @@
 ---
 name: patch-notes
-description: 生成面向用户的更新说明，将技术性变更日志转换为非技术语言。
-argument-hint: "[版本号]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-model: haiku
+description: "生成面向用户的更新说明，将技术性变更日志转换为非技术语言。"
+license: MIT
+metadata:
+  model: haiku
+  argument-hint: "[版本号]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /patch-notes}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # patch-notes — 面向用户更新说明

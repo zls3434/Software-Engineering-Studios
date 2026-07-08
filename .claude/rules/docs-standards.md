@@ -2,6 +2,12 @@
 paths:
   - "design/**"
   - "docs/**"
+platforms:
+  claude-code: {enabled: true, path: .claude/rules/docs-standards.md}
+  cursor: {enabled: true, type: auto-attached, globs: "design/**, docs/**"}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, mode: append}
+  trae: {enabled: true, mode: append}
 ---
 # 文档规范
 

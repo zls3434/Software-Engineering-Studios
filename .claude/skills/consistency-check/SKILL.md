@@ -1,14 +1,24 @@
 ---
 name: consistency-check
-description: 扫描所有 SRS 的矛盾、未定义引用、规则冲突，输出一致性问题清单。
-argument-hint: ""
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-model: sonnet
+description: "扫描所有 SRS 的矛盾、未定义引用、规则冲突，输出一致性问题清单。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: ""
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /consistency-check}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # consistency-check — SRS 一致性扫描

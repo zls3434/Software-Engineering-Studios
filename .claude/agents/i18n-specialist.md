@@ -13,6 +13,14 @@ model: sonnet
 maxTurns: 15
 skills:
   - localize
+platforms:
+  claude-code: {enabled: true, path: .claude/agents/i18n-specialist.md}
+  cursor: {enabled: true, type: agent-requested-rule}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, type: workflow}
+  trae: {enabled: true, type: agent}
+  hermes: {enabled: false}
+  workbuddy: {enabled: true}
 ---
 
 # 国际化专家（i18n Specialist）

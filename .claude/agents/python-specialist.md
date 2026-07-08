@@ -16,6 +16,14 @@ skills:
   - code-review
   - story-readiness
   - story-done
+platforms:
+  claude-code: {enabled: true, path: .claude/agents/python-specialist.md}
+  cursor: {enabled: true, type: agent-requested-rule}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, type: workflow}
+  trae: {enabled: true, type: agent}
+  hermes: {enabled: false}
+  workbuddy: {enabled: true}
 ---
 
 # Python 后端专家（Python Specialist）

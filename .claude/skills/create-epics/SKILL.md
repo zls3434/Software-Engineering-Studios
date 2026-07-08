@@ -1,15 +1,25 @@
 ---
 name: create-epics
-description: 创建Epic，将SRS与ADR转化为分层Epic（foundation/core/feature）。
-argument-hint: "layer:[foundation/core/feature]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "创建Epic，将SRS与ADR转化为分层Epic（foundation/core/feature）。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "layer:[foundation/core/feature]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /create-epics}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # create-epics — Epic 创建

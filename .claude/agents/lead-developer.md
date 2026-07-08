@@ -13,6 +13,16 @@ maxTurns: 20
 skills:
   - code-review
   - tech-debt
+  - create-skill
+  - create-rule
+platforms:
+  claude-code: {enabled: true, path: .claude/agents/lead-developer.md}
+  cursor: {enabled: true, type: agent-requested-rule}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, type: workflow}
+  trae: {enabled: true, type: agent}
+  hermes: {enabled: false}
+  workbuddy: {enabled: true}
 ---
 
 # 开发负责人（Lead Developer）
@@ -43,6 +53,7 @@ skills:
 3. **编码规范执行**：维护编码规范文档，在 review 与 CI 中强制执行，对违规代码一票否决。
 4. **技术债务管理**：登记技术债务，评估每项债务的利息（持续成本）与本金（偿还成本），按 ROI 排序偿还。
 5. **开发流程优化**：优化分支策略、合并流程、代码评审节奏，降低协作摩擦，提升交付吞吐。
+6. **技能与规则扩展**：根据开发需求提案新技能和新路径规则，确保新资产与现有编码规范体系一致，通过 `/create-skill` 和 `/create-rule` 工作流发起提案，经 chief-architect 审核和用户批准后注册。
 
 ## 决策框架
 

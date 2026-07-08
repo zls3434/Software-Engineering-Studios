@@ -1,15 +1,25 @@
 ---
 name: test-helpers
-description: 测试辅助库与工厂函数生成技能。根据项目技术栈生成测试夹具、Mock 工厂、数据构造器与断言工具，降低测试编写成本并保持一致性。
-argument-hint: "[目标模块或技术栈]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Bash
-model: sonnet
+description: "测试辅助库与工厂函数生成技能。根据项目技术栈生成测试夹具、Mock 工厂、数据构造器与断言工具，降低测试编写成本并保持一致性。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[目标模块或技术栈]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Bash
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /test-helpers}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # test-helpers —— 测试辅助库生成技能

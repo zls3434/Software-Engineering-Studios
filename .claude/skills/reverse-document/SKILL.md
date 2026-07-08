@@ -1,15 +1,25 @@
 ---
 name: reverse-document
-description: 从现有代码逆向生成设计文档与架构文档，分析代码结构推断设计意图。
-argument-hint: ""
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Bash
-model: sonnet
+description: "从现有代码逆向生成设计文档与架构文档，分析代码结构推断设计意图。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: ""
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Bash
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /reverse-document}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # reverse-document — 逆向文档生成

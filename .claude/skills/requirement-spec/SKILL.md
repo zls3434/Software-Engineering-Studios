@@ -1,15 +1,25 @@
 ---
 name: requirement-spec
-description: 编写逐模块需求规格(SRS)，使用 requirement-spec.md 模板引导式逐章编写，每章批准后立即写入文件。
-argument-hint: "[模块名]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "编写逐模块需求规格(SRS)，使用 requirement-spec.md 模板引导式逐章编写，每章批准后立即写入文件。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[模块名]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /requirement-spec}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # requirement-spec — 逐模块需求规格编写

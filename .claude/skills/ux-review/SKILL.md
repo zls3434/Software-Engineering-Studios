@@ -1,14 +1,24 @@
 ---
 name: ux-review
-description: 验证UX规范的无障碍性与SRS对齐度，检查ARIA、键盘导航、焦点管理与需求覆盖。
-argument-hint: "[UX规范路径]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-model: sonnet
+description: "验证UX规范的无障碍性与SRS对齐度，检查ARIA、键盘导航、焦点管理与需求覆盖。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[UX规范路径]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /ux-review}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # ux-review — UX 规范审查

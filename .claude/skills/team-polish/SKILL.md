@@ -1,17 +1,27 @@
 ---
 name: team-polish
-description: 编排优化打磨团队管线，协调性能工程师、安全工程师、代码审查员与测试工程师按序完成性能优化、安全加固、代码质量与补充测试。
-argument-hint: "[模块或系统名]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Bash
-  - Task
-  - AskUserQuestion
-model: sonnet
+description: "编排优化打磨团队管线，协调性能工程师、安全工程师、代码审查员与测试工程师按序完成性能优化、安全加固、代码质量与补充测试。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[模块或系统名]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Bash
+    - Task
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /team-polish}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # team-polish — 优化打磨团队编排

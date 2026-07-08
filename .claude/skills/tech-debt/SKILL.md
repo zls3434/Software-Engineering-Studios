@@ -1,15 +1,25 @@
 ---
 name: tech-debt
-description: 扫描并按优先级排序技术债务，覆盖设计、实现、依赖、测试四类债务的分类与跟踪。
-argument-hint: ""
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "扫描并按优先级排序技术债务，覆盖设计、实现、依赖、测试四类债务的分类与跟踪。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: ""
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /tech-debt}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # tech-debt — 技术债务扫描与排序

@@ -1,16 +1,26 @@
 ---
 name: setup-stack
-description: 配置技术栈，填充技术偏好文档并检测知识缺口，填充技术参考文档。
-argument-hint: "[栈名] [版本]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - WebSearch
-  - AskUserQuestion
-model: sonnet
+description: "配置技术栈，填充技术偏好文档并检测知识缺口，填充技术参考文档。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[栈名] [版本]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - WebSearch
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /setup-stack}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # setup-stack — 技术栈配置

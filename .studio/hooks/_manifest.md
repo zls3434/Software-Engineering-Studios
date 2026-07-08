@@ -13,6 +13,7 @@
 | validate-push.sh | ✅ 原生 | 📄 文档指令 | 📄 Always规则 | 📄 .windsurfrules | 📄 project_rules | 📄 AGENTS.md | 📄 AGENTS.md |
 | validate-assets.sh | ✅ 原生 | 📄 文档指令 | 📄 Always规则 | 📄 .windsurfrules | 📄 project_rules | 📄 AGENTS.md | 📄 AGENTS.md |
 | validate-skill-change.sh | ✅ 原生 | 📄 文档指令 | 📄 Always规则 | 📄 .windsurfrules | 📄 project_rules | 📄 AGENTS.md | 📄 AGENTS.md |
+| validate-asset-change.sh | ✅ 原生 | 📄 文档指令 | 📄 Always规则 | 📄 .windsurfrules | 📄 project_rules | 📄 AGENTS.md | 📄 AGENTS.md |
 | notify.sh | ✅ 原生 | N/A | N/A | N/A | N/A | N/A | N/A |
 | pre-compact.sh | ✅ 原生 | 📄 文档指令 | 📄 Always规则 | 📄 .windsurfrules | 📄 project_rules | 📄 SOUL.md | 📄 AGENTS.md |
 | post-compact.sh | ✅ 原生 | 📄 文档指令 | 📄 Always规则 | 📄 .windsurfrules | 📄 project_rules | 📄 SOUL.md | 📄 AGENTS.md |

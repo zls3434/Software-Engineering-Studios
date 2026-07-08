@@ -1,15 +1,25 @@
 ---
 name: design-review
-description: 审查设计文档，验证8必需章节、用户故事完整性、边界情况覆盖。
-argument-hint: "[文档路径]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "审查设计文档，验证8必需章节、用户故事完整性、边界情况覆盖。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[文档路径]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /design-review}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # design-review — 设计文档审查

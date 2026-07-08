@@ -1,15 +1,25 @@
 ---
 name: api-spec
-description: 编写API规范，使用 api-spec.md 模板定义端点、请求响应、错误码与认证授权。
-argument-hint: "[API名]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "编写API规范，使用 api-spec.md 模板定义端点、请求响应、错误码与认证授权。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[API名]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /api-spec}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # api-spec — API 规范编写

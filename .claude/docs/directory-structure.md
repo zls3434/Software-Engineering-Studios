@@ -16,6 +16,11 @@
 │   ├── skills/                  # 74 个技能定义（Agent Skills 标准）
 │   ├── rules/                   # 11 个路径规则
 │   ├── hooks/                   # 12 个 Hook 脚本源码
+│   ├── registry/                # 资产注册表与变更追踪（动态扩展机制）
+│   │   ├── asset-registry.yaml  # 资产注册表
+│   │   ├── asset-changelog.md   # 资产变更日志
+│   │   ├── proposals/           # 资产提案文档
+│   │   └── reviews/             # 资产审核报告
 │   ├── docs/                    # 规范文档
 │   └── templates/               # 文档模板
 ├── tools/adapters/              # 适配层（同步脚本）
@@ -174,6 +179,16 @@ Hook 脚本目录，存放 12 个 Hook 的 Shell 脚本。
 #### hooks/
 
 12 个 Hook 脚本源码，附 `_manifest.md` 说明 Hook 平台兼容性。
+
+#### registry/
+
+资产注册表与变更追踪目录（动态扩展机制）：
+- `asset-registry.yaml`：资产注册表，追踪所有通过动态扩展机制创建的资产
+- `asset-changelog.md`：资产变更日志，按时间倒序记录变更事件
+- `proposals/`：资产提案文档存放目录
+- `reviews/`：资产审核报告存放目录
+
+详见 `docs/extension-mechanism.md`。
 
 ### 2.2c 其他平台输出目录
 

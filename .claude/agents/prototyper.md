@@ -14,6 +14,14 @@ maxTurns: 10
 skills:
   - prototype
   - build-mvp
+platforms:
+  claude-code: {enabled: true, path: .claude/agents/prototyper.md}
+  cursor: {enabled: true, type: agent-requested-rule}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, type: workflow}
+  trae: {enabled: true, type: agent}
+  hermes: {enabled: false}
+  workbuddy: {enabled: true}
 ---
 
 # 原型工程师（Prototyper）

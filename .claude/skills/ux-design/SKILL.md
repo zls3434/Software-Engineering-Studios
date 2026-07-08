@@ -1,15 +1,25 @@
 ---
 name: ux-design
-description: 编写界面UX规范，使用 ux-spec.md 模板定义布局区域、状态、事件流与交互模式。
-argument-hint: "[界面名]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "编写界面UX规范，使用 ux-spec.md 模板定义布局区域、状态、事件流与交互模式。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[界面名]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /ux-design}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # ux-design — UX 规范编写

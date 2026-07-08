@@ -1,12 +1,22 @@
 ---
 name: platform-check
 description: 检查各平台配置的一致性和完整性。对比 .studio/ 规范源与各平台输出层，检测过期、缺失或不一致的配置文件。
-model: haiku
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
+license: MIT
+metadata:
+  model: haiku
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /platform-check}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # platform-check — 平台配置检查

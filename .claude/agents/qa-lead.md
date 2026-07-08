@@ -14,6 +14,14 @@ skills:
   - qa-plan
   - smoke-check
   - test-evidence-review
+platforms:
+  claude-code: {enabled: true, path: .claude/agents/qa-lead.md}
+  cursor: {enabled: true, type: agent-requested-rule}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, type: workflow}
+  trae: {enabled: true, type: agent}
+  hermes: {enabled: false}
+  workbuddy: {enabled: true}
 ---
 
 # QA 负责人（QA Lead）

@@ -1,15 +1,25 @@
 ---
 name: qa-plan
-description: QA 测试计划生成技能。为 Sprint 或功能生成结构化 QA 测试计划，含测试范围、用例矩阵、环境需求与验收门槛，作为测试执行与交付依据。
-argument-hint: "[epic-slug]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "QA 测试计划生成技能。为 Sprint 或功能生成结构化 QA 测试计划，含测试范围、用例矩阵、环境需求与验收门槛，作为测试执行与交付依据。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[epic-slug]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /qa-plan}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # qa-plan —— QA 测试计划生成技能

@@ -1,15 +1,25 @@
 ---
 name: changelog
-description: 从 Git 历史生成变更日志，按 Conventional Commits 分类为 Added/Changed/Fixed/Removed。
-argument-hint: "[起始版本] [结束版本]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Bash
-model: haiku
+description: "从 Git 历史生成变更日志，按 Conventional Commits 分类为 Added/Changed/Fixed/Removed。"
+license: MIT
+metadata:
+  model: haiku
+  argument-hint: "[起始版本] [结束版本]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Bash
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /changelog}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # changelog — 变更日志生成

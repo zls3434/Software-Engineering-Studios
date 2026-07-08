@@ -1,15 +1,25 @@
 ---
 name: test-flakiness
-description: 从 CI 历史中检测不稳定测试，统计通过/失败率，标记高变异性测试，分析根本原因并建议修复或隔离。
-argument-hint: ""
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Bash
-model: sonnet
+description: "从 CI 历史中检测不稳定测试，统计通过/失败率，标记高变异性测试，分析根本原因并建议修复或隔离。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: ""
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Bash
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /test-flakiness}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # test-flakiness — 不稳定测试检测

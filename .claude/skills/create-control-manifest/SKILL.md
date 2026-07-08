@@ -1,14 +1,24 @@
 ---
 name: create-control-manifest
-description: 从已接受的 ADR 中提取实施指南，编译为面向程序员的平面控制清单。
-argument-hint: ""
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-model: sonnet
+description: "从已接受的 ADR 中提取实施指南，编译为面向程序员的平面控制清单。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: ""
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /create-control-manifest}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # create-control-manifest — 控制清单生成

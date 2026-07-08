@@ -1,15 +1,25 @@
 ---
 name: create-stories
-description: 创建用户故事，将Epic分解为可开发的Story，定义验收标准与任务清单。
-argument-hint: "[epic-slug]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "创建用户故事，将Epic分解为可开发的Story，定义验收标准与任务清单。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[epic-slug]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /create-stories}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # create-stories — 用户故事创建

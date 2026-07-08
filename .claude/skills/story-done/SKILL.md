@@ -1,16 +1,26 @@
 ---
 name: story-done
-description: Story 完成审查技能。验证验收标准达成、检查实现偏差、收集测试证据并关闭 Story，产出完成报告作为交付凭证。
-argument-hint: "[故事路径]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - Bash
-  - AskUserQuestion
-model: sonnet
+description: "Story 完成审查技能。验证验收标准达成、检查实现偏差、收集测试证据并关闭 Story，产出完成报告作为交付凭证。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[故事路径]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - Bash
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /story-done}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # story-done —— Story 完成审查技能

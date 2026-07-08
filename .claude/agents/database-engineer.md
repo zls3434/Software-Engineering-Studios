@@ -15,6 +15,14 @@ skills:
   - dev-story
   - code-review
   - tech-debt
+platforms:
+  claude-code: {enabled: true, path: .claude/agents/database-engineer.md}
+  cursor: {enabled: true, type: agent-requested-rule}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, type: workflow}
+  trae: {enabled: true, type: agent}
+  hermes: {enabled: false}
+  workbuddy: {enabled: true}
 ---
 
 # 数据库工程师（Database Engineer）

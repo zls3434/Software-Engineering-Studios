@@ -1,15 +1,25 @@
 ---
 name: code-review
-description: 代码审查技能。对指定文件或变更集执行结构化代码审查，输出问题清单与改进建议，确保符合编码规范与架构决策。
-argument-hint: "[文件路径]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "代码审查技能。对指定文件或变更集执行结构化代码审查，输出问题清单与改进建议，确保符合编码规范与架构决策。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[文件路径]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /code-review}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # code-review —— 代码审查技能

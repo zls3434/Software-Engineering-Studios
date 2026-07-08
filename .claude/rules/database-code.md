@@ -2,6 +2,12 @@
 paths:
   - "src/database/**"
   - "**/migrations/**"
+platforms:
+  claude-code: {enabled: true, path: .claude/rules/database-code.md}
+  cursor: {enabled: true, type: auto-attached, globs: "src/database/**, **/migrations/**"}
+  codex: {enabled: true, section: agents.md}
+  windsurf: {enabled: true, mode: append}
+  trae: {enabled: true, mode: append}
 ---
 # 数据库规范
 

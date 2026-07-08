@@ -1,15 +1,25 @@
 ---
 name: architecture-decision
-description: 创建架构决策记录(ADR)，使用 architecture-decision-record.md 模板引导式编写，经用户批准后写入文件。
-argument-hint: "[决策主题]"
-user-invocable: true
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
-  - Write
-  - AskUserQuestion
-model: sonnet
+description: "创建架构决策记录(ADR)，使用 architecture-decision-record.md 模板引导式编写，经用户批准后写入文件。"
+license: MIT
+metadata:
+  model: sonnet
+  argument-hint: "[决策主题]"
+  user-invocable: true
+  allowed-tools:
+    - Read
+    - Glob
+    - Grep
+    - Write
+    - AskUserQuestion
+  platforms:
+    claude-code: {enabled: true}
+    cursor: {enabled: true}
+    codex: {enabled: true}
+    windsurf: {enabled: true, trigger: /architecture-decision}
+    trae: {enabled: true}
+    hermes: {enabled: true, platforms: [macos, linux, windows]}
+    workbuddy: {enabled: true}
 ---
 
 # architecture-decision — 架构决策记录创建
