@@ -334,6 +334,16 @@ phases:
           pattern: "production/sprints/sprint-NN-retrospective.md"
           min_count: 0
 
+      - id: branch-cleanup
+        name: "分支清理"
+        command: /code-management cleanup
+        required: false
+        description: "Sprint 结束时清理已合并分支、stale 分支和残留 worktree"
+        artifact:
+          glob: ""
+          pattern: ""
+          min_count: 0
+
       - id: scope-check
         name: "范围检查"
         command: /scope-check

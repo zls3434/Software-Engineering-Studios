@@ -2,7 +2,7 @@
 # 按开发阶段分类
 
 version: 1.0.0
-total: 79
+total: 80
 
 categories:
   入门导航:
@@ -55,6 +55,7 @@ categories:
   开发:
     skills:
       - {name: dev-story, command: /dev-story, model: sonnet, description: "开发用户故事"}
+      - {name: code-management, command: /code-management, model: sonnet, description: "代码管理工作流"}
       - {name: code-review, command: /code-review, model: sonnet, description: "代码审查"}
       - {name: story-readiness, command: /story-readiness, model: haiku, description: "故事就绪检查"}
       - {name: story-done, command: /story-done, model: sonnet, description: "故事完成确认"}

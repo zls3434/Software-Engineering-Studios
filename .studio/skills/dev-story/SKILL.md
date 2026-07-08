@@ -84,12 +84,14 @@ metadata:
 - **输入**：阶段 2-5 的所有产物。
 - **处理**：生成"实现总结"：变更文件、关键决策、测试结果、遗留 TODO。
 - **输出**：总结 Markdown，写入 Story 文件的"实现记录"小节。
+- **提交时机指引**：实现总结写入后，当前满足"阶段产出提交"时机（详见 `docs/code-management-workflow.md` 第 3 节）。可向用户建议运行 `/code-management commit` 执行提交，但**不得自主执行 Git 提交**。
 
 ### 阶段 7：更新会话状态
 
 - **输入**：阶段 6 的总结。
 - **处理**：更新会话状态文件（如 `.claude/state/session.md`）标记 Story 状态为 `implemented`。
 - **输出**：确认状态已写入，并提示用户下一步推荐操作。
+- **提交时机指引**：会话状态更新后，当前满足"会话保存提交"时机（详见 `docs/code-management-workflow.md` 第 3 节）。若 `active.md` 有变更，可向用户建议运行 `/code-management commit` 提交状态变更。
 
 ## 协作协议引用
 
@@ -103,3 +105,5 @@ metadata:
 - 实现完成后运行 `/story-done [故事路径]` 进行完成审查。
 - 若需多人交叉审查代码，运行 `/code-review [文件路径]`。
 - 若发现 Story 描述与实际需求偏差，运行 `/scope-check [故事路径]` 检测范围蔓延。
+- 实现和审查完成后运行 `/code-management push` 准备推送或创建 PR。
+- 并行开发场景运行 `/code-management worktree` 设置独立工作树。
