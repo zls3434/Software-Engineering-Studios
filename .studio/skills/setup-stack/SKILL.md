@@ -63,9 +63,11 @@ metadata:
 
 - **输入**：知识缺口清单
 - **处理**：
-  1. 针对每个缺口使用 WebSearch 收集最佳实践
-  2. 使用 Write 在 `docs/tech-reference/` 下创建对应参考文档
-- **输出**：技术参考文档集
+  1. 针对每个缺口，调用 `/tech-reference fetch` 获取相关技术文档
+  2. 对无法缓存的网页文档，调用 `/tech-reference index` 生成地址索引
+  3. 对用户已有的本地文档，提示用户调用 `/tech-reference import` 导入
+  4. 调用 `/tech-reference verify` 验证技术偏好文档中的引用一致性
+- **输出**：技术参考文档集（位于 `docs/tech-reference/`）
 
 ## 协作协议引用
 
@@ -73,4 +75,4 @@ metadata:
 
 ## 推荐下一步
 
-使用 `/create-architecture` 基于技术偏好编写架构文档，或使用 `/prototype` 验证关键技术点。
+使用 `/create-architecture` 基于技术偏好编写架构文档，或使用 `/prototype` 验证关键技术点。技术参考文档就绪后，使用 `/tech-reference list` 查看完整文档清单。

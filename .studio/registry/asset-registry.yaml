@@ -44,6 +44,19 @@ assets:
       approved_by: chief-architect + user
       proposal_doc: .studio/registry/proposals/skill-001-code-management-proposal.md
       review_doc: .studio/registry/reviews/skill-code-management-review.md
+    - id: skill-002
+      name: tech-reference
+      chinese_name: 技术参考文档管理
+      phase: 需求阶段
+      command: /tech-reference
+      model: sonnet
+      status: registered
+      proposal_date: "2026-07-09"
+      approval_date: "2026-07-09"
+      file_path: .studio/skills/tech-reference/SKILL.md
+      approved_by: chief-architect + user
+      proposal_doc: .studio/registry/proposals/skill-002-tech-reference-proposal.md
+      review_doc: .studio/registry/reviews/skill-tech-reference-review.md
 
   # 路径规则注册条目
   # 额外字段：
@@ -55,6 +68,6 @@ assets:
 # total_dynamic_additions 仅统计通过动态扩展机制新增的数量
 statistics:
   total_agents: 40        # 初始 40，每次新增 Agent +1
-  total_skills: 75        # 初始 74，每次新增 Skill +1（不含本机制新增的 5 个技能）
+  total_skills: 76        # 初始 74，每次新增 Skill +1（不含本机制新增的 5 个技能）
   total_rules: 11         # 初始 11，每次新增 Rule +1
-  total_dynamic_additions: 1
+  total_dynamic_additions: 2

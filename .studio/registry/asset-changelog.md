@@ -22,6 +22,18 @@
 
 <!-- 初始为空，首次动态新增资产后在此处添加条目 -->
 
+## [2026-07-09] created — skill/tech-reference
+
+- **变更类型**: created
+- **资产类型**: skill
+- **资产名称**: tech-reference
+- **提案 Agent**: tech-architect
+- **审核者**: chief-architect
+- **批准者**: user
+- **变更摘要**: 新增技术参考文档管理技能，支持在线文档缓存、PDF 下载、地址索引生成、本地文档导入、文档清单查询和引用一致性验证
+- **关联文件**: .studio/skills/tech-reference/SKILL.md, .studio/docs/tech-reference-management.md, .studio/templates/tech-reference-index.md, docs/tech-reference/README.md, .studio/skills/setup-stack/SKILL.md, .studio/docs/directory-structure.md
+- **关联提案编号**: skill-002
+
 ## [2026-07-08] created — skill/code-management
 
 - **变更类型**: created
