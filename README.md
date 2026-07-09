@@ -4,7 +4,7 @@
 
 **将一个 AI 编码会话转变为一间完整的软件工程开发工作室**
 
-40 个 Agent · 74 个技能 · 12 个 Hooks · 11 个路径规则 · 35 个文档模板 · 7 大平台适配
+40 个 Agent · 80 个技能 · 12 个 Hooks · 11 个路径规则 · 35 个文档模板 · 7 大平台适配
 
 </div>
 
@@ -24,6 +24,8 @@
 - [斜杠命令目录](#斜杠命令目录)
 - [项目结构](#项目结构)
 - [多平台支持](#多平台支持)
+- [动态扩展机制](#动态扩展机制)
+- [代码管理工作流](#代码管理工作流)
 - [协调规则](#协调规则)
 - [协作协议](#协作协议)
 - [贡献指南](#贡献指南)
@@ -42,6 +44,8 @@
 
 - **三层 Agent 架构**：总监层 → 部门负责人层 → 专家层，职责分明、逐级委派
 - **全生命周期覆盖**：从产品头脑风暴到上线发布，覆盖软件开发全流程
+- **动态扩展机制**：通过受控的六阶段工作流，按需新增专家 Agent、技能和路径规则
+- **代码管理工作流**：git worktree 并行隔离、提交时机定义、推送/PR 节奏、分支生命周期管理
 - **质量关卡**：12 个自动化 Hook 在提交、推送、文件变更等关键节点执行验证
 - **路径范围规则**：11 个编码规范在编辑特定类型代码时自动激活
 - **文档模板**：35 个标准化模板确保文档质量和一致性
@@ -75,6 +79,8 @@
 | 协作模式 | AI 自主执行 | 用户决策驱动，每步需审批 |
 | 审计追踪 | 无 | 12 个 Hook 记录 Agent 审计日志 |
 | 文档规范 | 无 | 35 个标准化模板，8 章节需求文档 |
+| 扩展能力 | 固定功能，无法扩展 | 动态扩展机制，按需新增 Agent/技能/规则 |
+| 代码管理 | 无 | git worktree 并行隔离、提交时机、PR 节奏、分支生命周期 |
 
 ---
 
@@ -94,6 +100,8 @@
 
 ```
 入门导航 → 需求阶段 → 架构设计 → 技术设计 → 预开发 → 开发阶段 → 测试优化 → 发布部署
+                                                                 ↑
+                                                          动态扩展（贯穿全程）
 ```
 
 ### 🛡️ 自动化质量关卡
@@ -134,6 +142,31 @@
 - 运维类：事故响应、事后分析、风险登记、缺陷报告
 - 设计类：设计系统规格、UX 规格、无障碍需求、交互模式库
 
+### 🧩 动态扩展机制
+
+预设资产无法穷举所有技术栈和领域场景。动态扩展机制提供一套受控的、可审计的六阶段工作流，允许在项目运行过程中按需新增资产：
+
+```
+提案 → 草稿 → 审核 → 批准/拒绝 → 注册 → 同步
+ ①      ②      ③        ④         ⑤       ⑥
+```
+
+- **三类资产可扩展**：专家 Agent、技能（Skill）、路径规则（Rule）
+- **统一入口**：`/create-asset` 引导选择资产类型并路由至专项工作流
+- **权限分级**：总监层/部门负责人层提案权 → chief-architect 审核权 → 用户最终批准权
+- **完整审计**：资产注册表（`asset-registry.yaml`）追踪所有动态新增资产的状态流转
+- **变更日志**：`asset-changelog.md` 记录所有创建、修改、废弃事件
+
+### 🔧 代码管理工作流
+
+在 AI Agent 多任务并行场景下，确保代码仓库保持整洁性、可追溯性和质量可控性：
+
+- **Git Worktree 并行隔离**：为每个并行子 Agent 提供独立工作目录，消除文件冲突
+- **提交时机定义**：将"未经用户指示不得提交"细化为阶段产出、逻辑单元、检查点、会话保存四类时机
+- **推送/PR 节奏**：推送时机与工作流阶段关联，feature → code-review，release → gate-check
+- **分支生命周期**：分支创建规范、Stale 检测（7 天无提交）、合并后清理
+- **Rebase 策略**：落后 main 超过 5 个提交建议 rebase，安全规则与禁止场景明确
+
 ---
 
 ## 包含内容
@@ -141,7 +174,7 @@
 | 类别 | 数量 | 描述 |
 |------|------|------|
 | **Agent** | 40 | 涵盖产品、架构、前端、后端、QA、DevOps、安全和文档的子 Agent |
-| **技能** | 74 | 覆盖每个工作流阶段的斜杠命令（`/start`、`/brainstorm`、`/create-epics`、`/dev-story` 等） |
+| **技能** | 80 | 覆盖每个工作流阶段的斜杠命令（`/start`、`/brainstorm`、`/create-asset`、`/code-management`、`/dev-story` 等） |
 | **Hooks** | 12 | 提交、推送、文件变更、会话生命周期、Agent 审计跟踪和缺口检测的自动化验证 |
 | **规则** | 11 | 编辑前端、后端、API、数据库、测试等代码时强制执行的路径范围编码规范 |
 | **模板** | 35 | SRS、ADR、Sprint 计划、UX 规格、无障碍要求等文档模板 |
@@ -552,7 +585,7 @@ python3 --version
 
 ## 斜杠命令目录
 
-共 74 个斜杠命令，按软件开发生命周期阶段分类：
+共 80 个斜杠命令，按软件开发生命周期阶段分类：
 
 ### 入门导航（5 个）
 
@@ -611,12 +644,13 @@ python3 --version
 | `/sprint-plan` | Sprint 规划 |
 | `/estimate` | 工作量估算 |
 
-### 开发阶段（11 个）
+### 开发阶段（12 个）
 
 | 命令 | 说明 |
 |------|------|
 | `/story-readiness` | 故事就绪检查 |
 | `/dev-story` | 开发故事（可重复） |
+| `/code-management` | 代码管理工作流（worktree/commit/push/cleanup/rebase） |
 | `/code-review` | 代码审查（可重复） |
 | `/story-done` | 故事完成确认（可重复） |
 | `/sprint-status` | Sprint 状态报告 |
@@ -662,6 +696,16 @@ python3 --version
 | `/team-security` | 安全团队编排 |
 | `/team-devops` | DevOps 团队编排 |
 
+### 动态扩展（5 个）
+
+| 命令 | 说明 |
+|------|------|
+| `/create-asset` | 动态扩展统一入口，路由至对应创建工作流 |
+| `/create-agent` | 创建新专家 Agent（六阶段工作流） |
+| `/create-skill` | 创建新技能（六阶段工作流） |
+| `/create-rule` | 创建新路径规则（六阶段工作流） |
+| `/asset-review` | 资产审核（由 chief-architect 执行） |
+
 ### 工具类（9 个）
 
 | 命令 | 说明 |
@@ -699,10 +743,15 @@ python3 --version
 │
 ├── .studio/                            # ★ 规范源层（所有修改在此进行）
 │   ├── agents/                         # 40 个 Agent 定义（源文件）
-│   ├── skills/                         # 74 个技能定义（源文件）
+│   ├── skills/                         # 80 个技能定义（源文件）
 │   ├── hooks/                          # 12 个 Hook 脚本（源文件）
 │   ├── rules/                          # 11 个路径范围编码规范（源文件）
 │   ├── templates/                      # 35 个文档模板（源文件）
+│   ├── registry/                      # 动态扩展资产注册表和变更日志
+│   │   ├── asset-registry.yaml         # 资产注册表（追踪所有动态新增资产）
+│   │   ├── asset-changelog.md          # 资产变更日志
+│   │   ├── proposals/                  # 资产提案文档
+│   │   └── reviews/                    # 资产审核报告
 │   ├── docs/                           # 规范文档
 │   ├── project/                        # 项目配置
 │   └── manifest.yaml                   # 工作室清单
@@ -809,6 +858,183 @@ bash tools/adapters/sync-trae.sh
 | Trae IDE | 从 [trae.cn](https://www.trae.cn/) 下载安装 |
 | Hermes Agent | 参考官方文档获取安装命令 |
 | WorkBuddy | 参考官方文档获取安装命令 |
+
+---
+
+## 动态扩展机制
+
+预设的 40 个 Agent、74 个技能和 11 个路径规则覆盖了软件开发的主要场景，但技术栈、工具链和领域场景极其多样，预设资产无法穷举所有可能性。动态扩展机制提供一套**受控的、可审计的**流程，允许在项目运行过程中根据需求新增资产。
+
+### 适用场景
+
+- 项目采用了预设未覆盖的技术栈（如 Rust、Swift、Kotlin）
+- 项目出现预设未覆盖的领域场景（如合规审计、数据迁移）
+- 现有技能无法满足特定工作流需求
+- 现有规则未覆盖新的代码路径范围
+
+### 三类可扩展资产
+
+| 资产类型 | 创建命令 | 定义目录 | 审核者 |
+|----------|----------|----------|--------|
+| 专家 Agent | `/create-agent` | `.studio/agents/` | chief-architect |
+| 技能（Skill） | `/create-skill` | `.studio/skills/[name]/` | chief-architect |
+| 路径规则（Rule） | `/create-rule` | `.studio/rules/` | chief-architect |
+
+> **统一入口**：运行 `/create-asset` 可引导选择资产类型并自动路由至对应工作流。
+
+### 六阶段工作流
+
+所有资产创建均遵循统一的六阶段工作流，确保新增资产符合规范、不与现有资产冲突，并经审核和用户批准：
+
+```
+提案 → 草稿 → 审核 → 批准/拒绝 → 注册 → 同步
+ ①      ②      ③        ④         ⑤       ⑥
+```
+
+| 阶段 | 执行者 | 产出 | 协作协议 |
+|------|--------|------|----------|
+| ① 提案 | 总监层/部门负责人层 | 提案文档 | Agent 询问用户需求背景 |
+| ② 草稿 | 提案 Agent | 资产定义草稿 | Agent 展示草稿供用户审阅 |
+| ③ 审核 | chief-architect | 审核报告（APPROVE/CONCERNS/REJECT） | 审核报告作为另一种草稿 |
+| ④ 批准/拒绝 | **用户** | 批准或拒绝决定 | 用户做出最终决策 |
+| ⑤ 注册 | 提案 Agent | 资产文件 + 更新索引 | 多文件变更集的批量审批 |
+| ⑥ 同步 | 任意 Agent | 各平台配置更新 | 用户指示后执行 |
+
+### 权限矩阵
+
+| 资产类型 | 提案权 | 审核权 | 批准权 |
+|----------|--------|--------|--------|
+| 专家 Agent | 总监层、部门负责人层 | chief-architect | **用户最终批准** |
+| Skill | 部门负责人层 | chief-architect | **用户最终批准** |
+| Rule | 部门负责人层 | chief-architect | **用户最终批准** |
+
+**关键约束**：
+- 专家层不得直接提案，需通过部门负责人代为提案
+- 最终批准权始终属于用户
+- 仅限专家层 Agent 新增，不允许新增总监层或部门负责人层 Agent
+
+### 审核标准
+
+**Agent 审核**：职责不重叠、模型层级合理、委托图完整、协作协议明确、Body 章节完整、platforms 配置正确
+
+**Skill 审核**：名称合规（kebab-case）、frontmatter 完整、Body 完整、模型层级合理、不与现有技能重复
+
+**Rule 审核**：路径范围不冲突、规范条目清晰可执行、示例完整（正确 + 错误）、platforms 配置正确
+
+### 资产注册表与变更追踪
+
+- **资产注册表**（`.studio/registry/asset-registry.yaml`）：追踪所有动态新增资产的状态流转
+  - 状态流：`proposed → draft → reviewed → approved → registered`（正常）或 `→ rejected`（拒绝）
+- **资产变更日志**（`.studio/registry/asset-changelog.md`）：按时间倒序记录所有创建、修改、废弃事件
+
+### 典型扩展示例
+
+```
+# 场景：项目需要 Rust 技术栈支持
+
+# 1. 通过统一入口启动
+/create-asset agent
+
+# 2. 或直接调用专项命令
+/create-agent rust-specialist
+
+# 3. 审核阶段
+/asset-review agent rust-specialist
+
+# 4. 批准后同步到所有平台
+/sync-platforms
+/platform-check
+```
+
+---
+
+## 代码管理工作流
+
+当多个 AI Agent 并行执行独立任务时，同一工作目录会产生文件冲突。代码管理工作流通过 **git worktree 并行隔离**、**提交时机定义**、**推送/PR 节奏**和**分支生命周期管理**，确保代码仓库保持整洁性、可追溯性和质量可控性。
+
+### 统一入口
+
+```
+/code-management [操作类型]
+```
+
+支持 5 个操作子命令：
+
+| 操作 | 命令 | 用途 |
+|------|------|------|
+| worktree | `/code-management worktree` | 创建或管理 git worktree，用于并行任务代码隔离 |
+| commit | `/code-management commit` | 判断提交时机并执行提交，遵循 Conventional Commits |
+| push | `/code-management push` | 准备推送或创建 PR，检查审查前置条件 |
+| cleanup | `/code-management cleanup` | 清理已合并分支、stale 分支和残留 worktree |
+| rebase | `/code-management rebase` | 执行 rebase 操作，整理提交历史 |
+
+### Git Worktree 并行隔离
+
+为每个并行子 Agent 创建独立工作目录，消除文件冲突：
+
+```
+项目根目录/
+├── src/                         # 主仓库
+├── ../worktrees/                # Worktree 根目录（与主仓库同级）
+│   ├── feature-user-auth-ui/    # 前端 Agent 工作树
+│   ├── feature-user-auth-api/   # 后端 Agent 工作树
+│   └── feature-user-auth-test/  # 测试 Agent 工作树
+```
+
+**生命周期**：创建 → 工作 → 提交 → 合并 → 清理
+
+| 并行场景 | 子 Agent | Worktree | 分支 |
+|----------|----------|----------|------|
+| 前端开发 | react-specialist | `feature-user-auth-ui` | `feature/user-auth-ui` |
+| 后端开发 | node-specialist | `feature-user-auth-api` | `feature/user-auth-api` |
+| 测试编写 | test-engineer | `feature-user-auth-test` | `feature/user-auth-test` |
+
+### 提交时机定义
+
+**核心原则**：未经用户指示，Agent 不得自主执行 Git 提交。但 Agent 应在满足以下时机时主动建议提交。
+
+| 时机类型 | 触发条件 | 说明 |
+|----------|----------|------|
+| 阶段产出提交 | 工作流阶段完成必需产出物后 | 如 dev-story 完成、架构审查通过 |
+| 逻辑单元提交 | 一个完整逻辑变更单元完成后 | 如验收标准实现 + 测试通过 |
+| 检查点提交 | 通过 review 或 gate-check 后 | 审查通过的代码状态应被保存 |
+| 会话保存提交 | 上下文压缩前、会话结束前 | 与上下文管理策略联动 |
+
+**禁止提交时机**：lint 未通过、测试失败、含 `console.log`、含硬编码密钥、含裸 TODO、含无效 JSON、需求文档缺章节。
+
+**提交粒度**：一个提交对应一个逻辑变更，保持原子性，单提交不超过 20 个文件。
+
+### 推送与 PR 节奏
+
+| 工作流阶段 | PR 类型 | 前置审查 | 分支类型 |
+|------------|---------|----------|----------|
+| 开发阶段（dev-story） | feature PR | code-review | `feature/*` |
+| 开发阶段（hotfix） | hotfix PR | code-review（事后补） | `hotfix/*` |
+| 测试优化阶段 | release PR | gate-check | `release/*` |
+| 发布阶段 | release PR | launch-checklist | `release/*` |
+
+**受保护分支不直接推送**：main/master/develop 必须通过 PR 合并。
+
+### 分支生命周期
+
+| 分支类型 | 格式 | 用途 | 示例 |
+|----------|------|------|------|
+| 主干 | `main` | 生产分支，受保护 | `main` |
+| 功能分支 | `feature/[描述]` | 新功能开发 | `feature/user-auth` |
+| 修复分支 | `fix/[描述]` | 缺陷修复 | `fix/pagination` |
+| 热修复分支 | `hotfix/[描述]` | 生产紧急修复 | `hotfix/login-crash` |
+| 发布分支 | `release/vX.Y.Z` | 发布准备 | `release/v1.2.0` |
+
+**Stale 检测**：超过 7 天无提交的非受保护分支标注为 stale，标注后 3 天无活动建议删除。
+
+**定期清理**：每个 Sprint 结束时运行 `/code-management cleanup` 执行分支整理流程。
+
+### Rebase 策略
+
+- **触发条件**：feature 分支落后 main 超过 5 个提交，或 PR 审查发现冲突
+- **安全规则**：仅对未推送的本地提交 rebase；rebase 前确保工作区干净；rebase 后必须运行测试
+- **禁止场景**：禁止 rebase 受保护分支（main/master/release/*）；禁止对已推送提交 rebase（除非个人分支且已通知协作者）
+- **交互式 rebase**：用于合并 WIP 提交、修正提交信息、拆分过大提交
 
 ---
 
