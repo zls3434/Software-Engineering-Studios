@@ -261,6 +261,12 @@ WorkBuddy 输出层，包含技能目录、MCP 配置和清单文件。
 - 技术选型参考
 - 第三方依赖说明
 - 性能基准报告
+- 按技术栈分子目录组织（如 `react/`、`node/`、`postgresql/`）
+- 通用分类目录：`middleware/`、`services/`、`general/`
+- `README.md`：目录说明
+- `INDEX.md`：全局索引文件（由 `/tech-reference` 技能自动维护）
+- 管理规范详见 `.studio/docs/tech-reference-management.md`
+- 通过 `/tech-reference` 技能管理文档获取、缓存、索引和验证
 
 #### examples/
 

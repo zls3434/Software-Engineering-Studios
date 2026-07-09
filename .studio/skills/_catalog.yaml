@@ -2,7 +2,7 @@
 # 按开发阶段分类
 
 version: 1.0.0
-total: 80
+total: 81
 
 categories:
   入门导航:
@@ -23,6 +23,7 @@ categories:
       - {name: quick-spec, command: /quick-spec, model: sonnet, description: "快速需求规格"}
       - {name: review-all-srs, command: /review-all-srs, model: opus, description: "全量需求审查"}
       - {name: consistency-check, command: /consistency-check, model: sonnet, description: "需求一致性检查"}
+      - {name: tech-reference, command: /tech-reference, model: sonnet, description: "技术参考文档管理"}
   
   架构设计:
     skills:
