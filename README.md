@@ -27,6 +27,7 @@
 - [协调规则](#协调规则)
 - [协作协议](#协作协议)
 - [贡献指南](#贡献指南)
+- [灵感来源与致谢](#灵感来源与致谢)
 - [许可证](#许可证)
 - [版权信息](#版权信息)
 - [免责声明](#免责声明)
@@ -879,6 +880,21 @@ Agent 之间的协作遵循 5 条核心协调规则：
 | `chore:` | 构建/工具变更 |
 
 Subject 不超过 50 字。禁止向 `main`/`master`/`release/*` 分支直接推送。
+
+---
+
+## 灵感来源与致谢
+
+本项目的架构理念和组织模式灵感来源于开源项目 [Claude Code Game Studios](https://github.com/Donchitos/Claude-Code-Game-Studios)（作者：[Donchitos](https://github.com/Donchitos)）。该项目将 AI 编码会话转变为一间游戏开发工作室，通过多层 Agent 协作、自动化质量关卡和路径范围编码规范，为 AI 辅助开发赋予了真实团队的结构与流程。
+
+Software Engineering Studios 在此基础上做了如下演进：
+
+- **领域适配**：将游戏开发场景调整为通用软件工程领域，覆盖前端、后端、数据库、API、基础设施等通用技术栈
+- **角色重构**：从游戏开发角色（创意总监、技术总监、制作人等）重构为软件工程角色（产品总监、首席架构师、项目经理等）
+- **工作流泛化**：从游戏开发生命周期（GDD、垂直切片、试玩等）泛化为软件开发生命周期（需求规格、架构设计、Sprint、发布等）
+- **多平台扩展**：从单一 Claude Code 平台扩展到 7 大 AI Agent 平台（Claude Code、Codex、Cursor、Windsurf、Trae IDE、Hermes Agent、WorkBuddy）
+
+在此向 [Claude Code Game Studios](https://github.com/Donchitos/Claude-Code-Game-Studios) 项目及其作者致以诚挚感谢，感谢其开创性的工作为本项目提供了宝贵的架构思路。
 
 ---
 
